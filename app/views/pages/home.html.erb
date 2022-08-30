@@ -1,4 +1,6 @@
 
+<% unless user_signed_in? %>
+
 <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
   <div class="col-10 col-sm-8 col-lg-6">
     <img src="http://www.actualites-fr.com/wp-content/uploads/2020/11/infirmiere-domicile.jpg" class="d-block mx-lg-auto img-fluid rounded" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
@@ -20,3 +22,6 @@
     </div>
   </div>
 </div>
+<% else %>
+
+<% end %>
