@@ -1,0 +1,7 @@
+<h1>All my tours</h1>
+
+<ul>
+  <% @tours.each do |tour| %>
+    <li>Tournée du <%= tour.date %></li>
+  <% end %>
+</ul>
