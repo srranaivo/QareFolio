@@ -1,7 +1,4 @@
-<div class="container">
-<h2>Sign in</h2>
-
-
+<h2>Log in</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
@@ -13,26 +10,11 @@
                 required: false,
                 input_html: { autocomplete: "current-password" } %>
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-    <%= f.input :last_name,
-                required: true,
-                autofocus: true
-                %>
-    <%= f.input :first_name,
-                required: true,
-                autofocus: true
-                %>
-
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
   </div>
 
+  <div class="form-actions">
+    <%= f.button :submit, "Log in" %>
+  </div>
+<% end %>
 
-
-
-
-</div>
+<%= render "devise/shared/links" %>
