@@ -5,8 +5,12 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+URL = "https://randomuser.me/api/"
 
 require 'faker'
+require 'open-uri'
+
+
 
 #destroy existing seed
 Consultation.destroy_all
@@ -25,11 +29,16 @@ tour.save!
 
 #generate patients
 1..10.times do
+  profile_pic = URI.open(URL).read
+  profile_pic_data = JSON.parse(profile_pic)
+  profile_pic_url = profile_pic_data["results"][0]["picture"]["medium"]
+
   patient = Patient.create(
     address: Faker::Address.full_address,
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    birth_date: Faker::Date.between(from: '1930-09-23', to: '1970-09-25')
+    birth_date: Faker::Date.between(from: '1930-09-23', to: '1970-09-25'),
+    profile_pic: profile_pic_url
   )
   patient.save!
   consultation = Consultation.new(tour: tour, patient: patient, position: 1)

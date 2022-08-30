@@ -1,0 +1,16 @@
+<div class="container">
+
+  <div class="show-consultations-profile d-flex flex-row mt-4">
+    <img class="ms-2 me-4" src="<%= @consultation.patient.profile_pic%>" alt="">
+    <div class="d-flex flex-column">
+      <h1>
+        <%= @consultation.patient.first_name %>
+        <%= @consultation.patient.last_name %>
+      </h1>
+      <p>
+      <%= @consultation.patient.birth_date.strftime('%d, %B %Y') %>
+      </p>
+    </div>
+  </div>
+
+</div>
