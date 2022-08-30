@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Ma tournée</h1>
+  <p>Tournée du : <%= @tour.date %></p>
+
+
+
+  <% @tour.consultations.each do |consultation| %>
+  <div class="card mb-4">
+    <div class="card-header">
+      <h2 class="card-title">
+        <%= consultation.patient.first_name %>
+        <%= consultation.patient.last_name %>
+      </h2>
+    </div>
+    <div class="card-body">
+    <div class="d-flex flex-column">
+      <p>
+        <%= consultation.patient.address %>
+      </p>
+      <p>
+        <strong>
+          <%= consultation.patient.birth_date.strftime('%d %B %Y') %>
+        </strong>
+      </p>
+    </div>
+    </div>
+  </div>
+  <% end %>
+</div>
