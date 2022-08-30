@@ -5,3 +5,33 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+require 'faker'
+
+#destroy existing seed
+Consultation.destroy_all
+Tour.destroy_all
+User.destroy_all
+Patient.destroy_all
+
+
+#generate a Nurse
+nurse = User.new(first_name: 'Sophie', last_name: 'Ramahenina', email: "sophie@gmail.com", password: "123456")
+nurse.save!
+
+#generate a tour
+tour = Tour.new(date: Date.today, user: nurse)
+tour.save!
+
+#generate patients
+1..10.times do
+  patient = Patient.create(
+    address: Faker::Address.full_address,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    birth_date: Faker::Date.between(from: '1930-09-23', to: '1970-09-25')
+  )
+  patient.save!
+  consultation = Consultation.new(tour: tour, patient: patient, position: 1)
+  consultation.save!
+end
