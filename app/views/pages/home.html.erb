@@ -1,27 +1,25 @@
-
 <% unless user_signed_in? %>
 
-<div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-  <div class="col-10 col-sm-8 col-lg-6">
-    <img src="http://www.actualites-fr.com/wp-content/uploads/2020/11/infirmiere-domicile.jpg" class="d-block mx-lg-auto img-fluid rounded" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
-  </div>
-  <div class="col-lg-6">
-    <h1 class="display-5 fw-bold lh-1 mb-3">QareFolio</h1>
-    <h2 class="lead">Votre partenaire tout en un !</h2>
-    <p>Ne perdez plus votre temps à chercher les informations sur vos patients ni à caluler vos itinéraires chaque jour.</p>
-
-
-
-
-
-
-
-
-    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+<div class="container">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <img src="http://www.actualites-fr.com/wp-content/uploads/2020/11/infirmiere-domicile.jpg" class="d-block mx-lg-auto img-fluid rounded" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+    </div>
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold lh-1 mb-3">QareFolio</h1>
+      <h2 class="lead">Votre partenaire tout en un !</h2>
+      <p>Ne perdez plus votre temps à chercher les informations sur vos patients ni à caluler vos itinéraires chaque jour.</p>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
       <%= button_to "Register", new_user_registration_path, class:'btn btn-primary btn-lg px-4 me-md-2', method: :get%>
+      </div>
     </div>
   </div>
 </div>
 <% else %>
-
+  <div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold">Bonjour <%= current_user.first_name %></h1>
+    <p class="col-md-8 fs-4">J'espère que vous allez bien ! QareFolio vous accompagne tout au long de votre journeé.</p>
+    <p>Aujourd'hui vous avez <%= current_user.todays_tour.consultations.count %> patients à prendre en soin.</p>
+    <%= link_to 'Commencer la tournée', tour_path(current_user.todays_tour), class:"btn btn-primary btn-lg" %>
+  </div>
 <% end %>
