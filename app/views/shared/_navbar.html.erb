@@ -13,12 +13,15 @@
       <ul class="navbar-nav me-auto align-items-center">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
+            <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Messages", "#", class: "nav-link" %>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item">
+            <%= link_to "Tournée", tour_path(current_user.todays_tour), class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdow n">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>
