@@ -20,7 +20,7 @@ User.destroy_all
 Patient.destroy_all
 
 #generate a Nurse
-nurse = User.new(first_name: 'Sophie', last_name: 'Ramahenina', email: "sophie@gmail.com", password: "123456")
+nurse = User.new(first_name: 'Sophie', last_name: 'Ramahenina', email: "sophie@gmail.com", password: "123456", profile_pic: "https://avatars.githubusercontent.com/u/102239823?v=4")
 nurse.save!
 
 #generate a tour
@@ -38,7 +38,6 @@ tour.save!
   patient_gender = profile_pic_data["results"][0]["gender"]
 
   profile_pic_url = profile_pic_data["results"][0]["picture"]["medium"]
-  birth_date = Faker::Date.between(from: '1930-09-23', to: '1970-09-25')
 
   patient = Patient.create(
     address: Faker::Address.full_address,
@@ -57,7 +56,7 @@ tour.save!
 
   anamnesis = Anamnesis.new(
     patient: patient,
-    date:  Faker::Date.between(from: birth_date, to: Date.today),
+    date:  Faker::Date.between(from: patient_age, to: Date.today),
     description: table[rand(0..50)][0].strip
   )
   anamnesis.save!
