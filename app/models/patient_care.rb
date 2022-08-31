@@ -1,4 +1,4 @@
 class PatientCare < ApplicationRecord
   belongs_to :patient
-  belongs_to :cares
+  belongs_to :care
 end

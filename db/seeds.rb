@@ -18,6 +18,8 @@ Consultation.destroy_all
 Tour.destroy_all
 User.destroy_all
 Patient.destroy_all
+Care.destroy_all
+PatientCare.destroy_all
 
 #generate a Nurse
 nurse = User.new(first_name: 'Sophie', last_name: 'Ramahenina', email: "sophie@gmail.com", password: "123456", profile_pic: "https://avatars.githubusercontent.com/u/102239823?v=4")
@@ -27,8 +29,13 @@ nurse.save!
 tour = Tour.new(date: Date.today, user: nurse)
 tour.save!
 
+#generate cares
+  care = Care.create!(
+    name: "Injection sous-cutanée",
+    description: "désinfection de la peau puis injecter calciparine")
+
 #generate patients
-1..8.times do
+3.times do
   p 'fake patient creation'
   profile_pic = URI.open(URL).read
   profile_pic_data = JSON.parse(profile_pic)
@@ -51,6 +58,9 @@ tour.save!
   patient.save!
   consultation = Consultation.new(tour: tour, patient: patient, position: 1)
   consultation.save!
+  patient_care = PatientCare.new(patient: patient, care: care)
+  patient_care.save!
+
 
   table = CSV.parse(filepath)
 
