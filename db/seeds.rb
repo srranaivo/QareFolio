@@ -27,8 +27,10 @@ nurse.save!
 tour = Tour.new(date: Date.today, user: nurse)
 tour.save!
 
+swiss_address = ['Rue de la gare 2, le Brassus', 'Villard-sous-yens',' St-légier', 'yverdon-les-bains']
+
 #generate patients
-1..8.times do
+4.times do |i|
   p 'fake patient creation'
   profile_pic = URI.open(URL).read
   profile_pic_data = JSON.parse(profile_pic)
@@ -40,7 +42,7 @@ tour.save!
   profile_pic_url = profile_pic_data["results"][0]["picture"]["medium"]
 
   patient = Patient.create(
-    address: Faker::Address.full_address,
+    address: swiss_address[i],
     first_name: patient_name_first,
     last_name: patient_name_second,
     birth_date: patient_age,
@@ -49,7 +51,7 @@ tour.save!
   )
 
   patient.save!
-  consultation = Consultation.new(tour: tour, patient: patient, position: 1)
+  consultation = Consultation.new(tour: tour, patient: patient)
   consultation.save!
 
   table = CSV.parse(filepath)
