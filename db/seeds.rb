@@ -17,9 +17,10 @@ Anamnesis.destroy_all
 Consultation.destroy_all
 Tour.destroy_all
 User.destroy_all
-Patient.destroy_all
-Care.destroy_all
 PatientCare.destroy_all
+Care.destroy_all
+Patient.destroy_all
+
 
 #generate a Nurse
 nurse = User.new(first_name: 'Sophie', last_name: 'Ramahenina', email: "sophie@gmail.com", password: "123456", profile_pic: "https://avatars.githubusercontent.com/u/102239823?v=4")

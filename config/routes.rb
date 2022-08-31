@@ -5,5 +5,4 @@ Rails.application.routes.draw do
 
   resources :tours
   resources :consultations, only: [:show]
-  resources :cares
 end
