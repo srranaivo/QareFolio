@@ -7,25 +7,46 @@
         <%= @consultation.patient.first_name %>
         <%= @consultation.patient.last_name %>
       </h1>
-      <p>
-      <%= @consultation.patient.birth_date.strftime('%d, %B %Y') %>
+    <div class="d-flex">
+      <p class="me-4">
+        <span class="badge <%= @consultation.patient.gender == 'female' ? "bg-primary" : "bg-danger" %>">
+          <%= @consultation.patient.gender %>
+        </span>
       </p>
+      <p class="text-secondary">
+        <%= @consultation.patient.birth_date.strftime('%d, %B %Y') %>
+      </p>
+    </div>
+
     </div>
   </div>
 
   <div class="accordion mt-4">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        <strong>Anamnèse</strong>
-      </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <%= @consultation.patient.anamneses.first.description %>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <strong>Anamnèse</strong>
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <div class="d-flex">
+            <p class="me-4">
+              <strong>
+                <%= @consultation.patient.anamneses.first.date.strftime('%Y') %>
+              </strong>
+            </p>
+            <p>
+            <%= @consultation.patient.anamneses.first.description %>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
+  <div class="cheklist">
+
+  </div>
 
 </div>
