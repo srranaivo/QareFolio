@@ -1,3 +1,5 @@
+require "erb"
+include ERB::Util
 require "uri"
 require 'open-uri'
 
