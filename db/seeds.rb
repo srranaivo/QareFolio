@@ -17,7 +17,10 @@ Anamnesis.destroy_all
 Consultation.destroy_all
 Tour.destroy_all
 User.destroy_all
+PatientCare.destroy_all
+Care.destroy_all
 Patient.destroy_all
+
 
 #generate a Nurse
 nurse = User.new(first_name: 'Sophie', last_name: 'Ramahenina', email: "sophie@gmail.com", password: "123456", profile_pic: "https://avatars.githubusercontent.com/u/102239823?v=4")
@@ -26,6 +29,12 @@ nurse.save!
 #generate a tour
 tour = Tour.new(date: Date.today, user: nurse)
 tour.save!
+
+#generate cares
+ care = Care.create!(
+ name: "Injection sous-cutanée",
+ description: "désinfection de la peau puis injecter calciparine")
+
 
 swiss_address = ['Rue de la gare 2, le Brassus', 'Villard-sous-yens',' St-légier', 'yverdon-les-bains']
 
@@ -53,6 +62,9 @@ swiss_address = ['Rue de la gare 2, le Brassus', 'Villard-sous-yens',' St-légie
   patient.save!
   consultation = Consultation.new(tour: tour, patient: patient)
   consultation.save!
+  patient_care = PatientCare.new(patient: patient, care: care)
+  patient_care.save!
+
 
   table = CSV.parse(filepath)
 
