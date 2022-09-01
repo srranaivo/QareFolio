@@ -5,6 +5,6 @@ Rails.application.routes.draw do
 
   resources :tours
   resources :consultations, only: [:show] do
-    resources :validated_cares, only: [:create]
+    resources :validated_cares, only: [:create, :destroy]
   end
 end
