@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   resources :tours
-  resources :consultations, only: [:show]
+  resources :consultations, only: [:show] do
+    resources :validated_cares, only: [:create]
+  end
 end
