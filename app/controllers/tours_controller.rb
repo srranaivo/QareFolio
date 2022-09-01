@@ -32,8 +32,7 @@ class ToursController < ApplicationController
     origin = url_encode("Renens, route de lausanne 64")
     destination = url_encode("Renens, route de lausanne 64")
     waypoints = url_encode(patients_address)
-    api_key = 'AIzaSyCbwW6MnwhGlDzRcXt60O9uzirzV_1O3E4'
-    url_encoded = "#{base_url}origin=#{origin}&destination=#{destination}&waypoints=optimize%3Atrue%7C#{waypoints}&key=#{api_key}"
+    url_encoded = "#{base_url}origin=#{origin}&destination=#{destination}&waypoints=optimize%3Atrue%7C#{waypoints}&key=#{ENV['GOOGLE_MAP']}"
     p url_encoded
 
     #call the api and parse in json format
