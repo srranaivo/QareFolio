@@ -15,25 +15,12 @@ class ToursController < ApplicationController
   end
 
   def map
+    @tour_id = params[:tour_id]
     consultations = Tour.find(params[:tour_id]).consultations
-    patients_address = ''
-    consultation_initial_order = []
-    consultations.each do |consultation|
-      #todo avoid last pipeline
-      patients_address << " #{consultation.patient.address} |"
-      consultation_initial_order << consultation.id
-    end
 
-    p "patients : #{consultation_initial_order}"
-    p "adress : #{patients_address}"
-
-    # creation of the request url
-    base_url = "https://maps.googleapis.com/maps/api/directions/json?"
-    origin = url_encode("Renens, route de lausanne 64")
-    destination = url_encode("Renens, route de lausanne 64")
-    waypoints = url_encode(patients_address)
-    url_encoded = "#{base_url}origin=#{origin}&destination=#{destination}&waypoints=optimize%3Atrue%7C#{waypoints}&key=#{ENV['GOOGLE_MAP']}"
-    p url_encoded
+    url_creation = create_url(consultations)
+    url_encoded = url_creation[:url]
+    consultation_initial_order = url_creation[:initial_order]
 
     #call the api and parse in json format
     content = URI.open(url_encoded).read
@@ -48,6 +35,31 @@ class ToursController < ApplicationController
       consultation.update(position: final_index)
     end
 
-    p "google reorder : #{waypoint_order}"
+    # we respond differently if the front request or the back
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.json { render json: content }
+    end
+  end
+
+  private
+
+  def create_url(consul)
+    consultations = consul
+    patients_address = ''
+    consultation_initial_order = []
+    consultations.each do |consultation|
+      #todo avoid last pipeline
+      patients_address << " #{consultation.patient.address} |"
+      consultation_initial_order << consultation.id
+    end
+
+    # creation of the request url
+    base_url = "https://maps.googleapis.com/maps/api/directions/json?"
+    origin = url_encode("Renens, route de lausanne 64")
+    destination = url_encode("Renens, route de lausanne 64")
+    waypoints = url_encode(patients_address)
+    url_encoded = "#{base_url}origin=#{origin}&destination=#{destination}&waypoints=optimize%3Atrue%7C#{waypoints}&mode=driving&key=#{ENV['GOOGLE_MAP']}"
+    return {url: url_encoded, initial_order: consultation_initial_order}
   end
 end
