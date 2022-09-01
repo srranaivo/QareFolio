@@ -51,7 +51,7 @@ gem "sassc-rails"
 gem 'faker'
 
 #geocoding
-gem 'geocoder'
+# gem 'geocoder'
 
 #for google maps api
 gem 'net-http'
