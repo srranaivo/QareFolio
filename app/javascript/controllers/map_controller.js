@@ -14,10 +14,9 @@ export default class extends Controller {
   }
 
   #initMap() {
-    console.log("initMap");
+    /* console.log("initMap");
     console.log(this.googleTarget)
-
-
+    */
     var center = new google.maps.LatLng(46.5196535, 6.6322734);
     var mapOptions = {
       zoom: 8,
@@ -63,7 +62,7 @@ export default class extends Controller {
               });
               return leg;
             });
-            console.log(response)
+            // console.log(response)
             directionsRenderer.setDirections(response);
           }
         }
