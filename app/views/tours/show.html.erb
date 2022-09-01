@@ -3,16 +3,17 @@
   <p>Tournée du : <%= @tour.date.strftime('%d %B %Y') %></p>
 
   <div class="d-grid gap-2 mb-4">
-    <button class="btn btn-primary">Commencer la tournée</button>
+    <%= link_to "Commencer la tournée", tour_map_path(@tour), class:'btn btn-primary btn-lg px-4', method: :get %>
   </div>
 
-  <% @tour.consultations.each do |consultation| %>
+  <% @consultations.each do |consultation| %>
   <%= link_to consultation_path(consultation.id), class: "show-tours-card" do %>
     <div class="card mb-4">
       <div class="card-header">
         <h2 class="card-title">
           <%= consultation.patient.first_name %>
           <%= consultation.patient.last_name %>
+          <%= consultation.position %>
         </h2>
       </div>
       <div class="card-body">

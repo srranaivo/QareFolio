@@ -1,0 +1,5 @@
+<div data-controller="map" class="container-fluid" id="map">
+  <%= link_to "ma tournée", tour_path(current_user.todays_tour), class: 'btn btn-primary'%>
+    <div data-map-target="google" class="container-fluid" id="google-map">
+    </div>
+</div>
