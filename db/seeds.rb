@@ -95,7 +95,6 @@ tour_3.save!
     last_name: " Zermatten ",
     birth_date: "12.06.1940",
     gender: "female"
-
   )
 
   patient_3 = Patient.create!(

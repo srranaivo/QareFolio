@@ -1,0 +1,22 @@
+#map-wrapper {
+  height: calc(100vh - 76px);
+
+}
+
+
+#map {
+  height: 100%;
+  padding: 0;
+}
+
+#google-map {
+  height: 100%;
+  padding: 0;
+}
+
+.btn-map {
+  height: 10vh;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
