@@ -8,4 +8,8 @@ class User < ApplicationRecord
   def todays_tour
     tours.find_by(date: Date.today)
   end
+
+  def yesterdays_tour
+    tours.find_by(date: 1.day.ago).present? ? tours.find_by(date: 1.day.ago) : nil
+  end
 end
