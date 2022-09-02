@@ -13,14 +13,13 @@ require "csv"
 filepath = File.read(Rails.root.join('db', 'anamneses.csv'))
 
 #destroy existing seed
-Anamnesis.destroy_all
+Care.destroy_all
+PatientCare.destroy_all
+Patient.destroy_all
 Consultation.destroy_all
 Tour.destroy_all
+Anamnesis.destroy_all
 User.destroy_all
-PatientCare.destroy_all
-Care.destroy_all
-Patient.destroy_all
-
 
 #generate a Nurse
 nurse = User.new(first_name: 'Sophie', last_name: 'Ramahenina', email: "sophie@gmail.com", password: "123456", profile_pic: "https://avatars.githubusercontent.com/u/102239823?v=4")
@@ -66,7 +65,6 @@ swiss_address_2 = ['le Pont, suisse', 'Orbe, suisse',' St-légier', 'yverdon-les
 #   patient_name_second = profile_pic_data["results"][0]["name"]["last"]
 #   patient_age = profile_pic_data["results"][0]["dob"]["date"]
 #   patient_gender = profile_pic_data["results"][0]["gender"]
-
 #   profile_pic_url = profile_pic_data["results"][0]["picture"]["medium"]
 
   # patient = Patient.create(
@@ -82,36 +80,56 @@ swiss_address_2 = ['le Pont, suisse', 'Orbe, suisse',' St-légier', 'yverdon-les
   # Créer des consultations
   # Créer des Anamnèses
 
+  profile_pic_1 = URI.open(URL).read
+  profile_pic_data_1 = JSON.parse(profile_pic_1)
+  profile_pic_url_1 = profile_pic_data_1["results"][0]["picture"]["medium"]
+
   patient = Patient.create!(
     address: "chemin du Vallon 10 Bussigny ",
     first_name: "Jean",
     last_name: "Testaz",
     birth_date: "27.03.1952",
-    gender: "male"
+    gender: "male",
+    profile_pic: profile_pic_url_1
   )
+
+  profile_pic_2 = URI.open(URL).read
+  profile_pic_data_2 = JSON.parse(profile_pic_2)
+  profile_pic_url_2 = profile_pic_data_2["results"][0]["picture"]["medium"]
 
   patient_2 = Patient.create!(
     address: "Av. de Montchoisi 41, 1006 Lausanne",
     first_name: "Gisèle",
     last_name: " Zermatten ",
     birth_date: "12.06.1940",
-    gender: "female"
+    gender: "female",
+    profile_pic: profile_pic_url_2
   )
+
+  profile_pic_3 = URI.open(URL).read
+  profile_pic_data_3 = JSON.parse(profile_pic_3)
+  profile_pic_url_3 = profile_pic_data_3["results"][0]["picture"]["medium"]
 
   patient_3 = Patient.create!(
     address: "Chem. des Orchez 20, 1066 Epalinges",
     first_name: "Alphred",
     last_name: "Bally",
     birth_date: "02.07.1957",
-    gender: "male"
+    gender: "male",
+    profile_pic: profile_pic_url_3
   )
+
+  profile_pic_4 = URI.open(URL).read
+  profile_pic_data_4 = JSON.parse(profile_pic_4)
+  profile_pic_url_4 = profile_pic_data_4["results"][0]["picture"]["medium"]
 
   patient_4 = Patient.create!(
     address: "Av. de Montoie 19, 1007 Lausanne",
     first_name: "Géraldine",
     last_name: "Da Silva",
     birth_date: "11.12.1996",
-    gender: "female"
+    gender: "female",
+    profile_pic: profile_pic_url_4
   )
 
   Consultation.create!(tour: tour, patient: patient)
@@ -131,7 +149,6 @@ swiss_address_2 = ['le Pont, suisse', 'Orbe, suisse',' St-légier', 'yverdon-les
 
   # patient_care = PatientCare.new(patient: patient, care: care)
   # patient_care.save!
-
 
   table = CSV.parse(filepath)
 
@@ -154,20 +171,15 @@ Anamnesis.create!(
   description: table[rand(0..50)][0].strip
 )
 
-
 Anamnesis.create!(
   patient: patient_3,
   date:  Faker::Date.between(from: "02.07.1957", to: Date.today),
   description: table[rand(0..50)][0].strip
 )
 
-
 Anamnesis.create!(
   patient: patient_4,
   date:  Faker::Date.between(from: "11.12.1996", to: Date.today),
   description: table[rand(0..50)][0].strip
 )
-
-
-
 # end
