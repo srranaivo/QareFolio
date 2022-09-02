@@ -46,14 +46,16 @@ tour_3.save!
   care_3 = Care.create!(
     name: "pansement simple mollet gauche"
   )
-
   care_4 = Care.create!(
     name: "pansement cathéter de dialyse"
   )
-
   care_5 = Care.create!(
     name: "injection d'insuline"
   )
+
+swiss_address = ['Rue de la gare 2, le Brassus', 'Villard-sous-yens',' St-légier', 'yverdon-les-bains']
+swiss_address_2 = ['le Pont, suisse', 'Orbe, suisse',' St-légier', 'yverdon-les-bains']
+
 
 #generate patients
 # 3.times do
@@ -81,7 +83,6 @@ tour_3.save!
   # Créer des Anamnèses
 
   patient = Patient.create!(
-
     address: "chemin du Vallon 10 Bussigny ",
     first_name: "Jean",
     last_name: "Testaz",
@@ -103,7 +104,6 @@ tour_3.save!
     last_name: "Bally",
     birth_date: "02.07.1957",
     gender: "male"
-
   )
 
   patient_4 = Patient.create!(
@@ -112,11 +112,7 @@ tour_3.save!
     last_name: "Da Silva",
     birth_date: "11.12.1996",
     gender: "female"
-
   )
-
-
-
 
   Consultation.create!(tour: tour, patient: patient)
   Consultation.create!(tour: tour, patient: patient_2)
@@ -127,14 +123,11 @@ tour_3.save!
   Consultation.create!(tour: tour_3, patient: patient)
   Consultation.create!(tour: tour_3, patient: patient_3)
 
-
   PatientCare.create!(patient: patient, care: care)
   PatientCare.create!(patient: patient_2, care: care_2)
 
   PatientCare.create!(patient: patient_3, care: care_3)
   PatientCare.create!(patient: patient_4, care: care_4)
-
-
 
   # patient_care = PatientCare.new(patient: patient, care: care)
   # patient_care.save!

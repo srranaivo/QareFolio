@@ -21,6 +21,14 @@
     </div>
   </div>
 
+  <div class="d-grid mt-4 mb-4">
+    <%= link_to @google_maps_link, class: "btn btn-primary" do %>
+      Se rendre chez <%= @consultation.patient.first_name %></l>
+    <% end %>
+  </div>
+
+
+
   <div class="accordion mt-4">
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingOne">
@@ -29,11 +37,12 @@
         </button>
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+       <% if @consultation.patient.anamneses.present? %>
         <div class="accordion-body">
           <div class="d-flex">
             <p class="me-4">
               <strong>
-                <%= @consultation.patient.anamneses.first.date.strftime('%Y') %>
+                  <%= @consultation.patient.anamneses.first.date.strftime('%Y') %>
               </strong>
             </p>
             <p>
@@ -41,6 +50,7 @@
             </p>
           </div>
         </div>
+        <% end %>
       </div>
     </div>
   </div>
