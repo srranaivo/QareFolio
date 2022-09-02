@@ -47,10 +47,10 @@
 
   <div class="cheklist">
 
-    <% @consultation.patient.patient_cares.each do |patient_care| %>
-      <p><%= patient_care.care.description %></p>
-      <p><%= patient_care.care.name %></p>
-    <% end %>
+        <% @consultation.patient.patient_cares.each do |patient_care| %>
+          <p><%= patient_care.care.description %></p>
+          <p><%= patient_care.care.name %></p>
+        <% end %>
 
 
 
