@@ -146,7 +146,7 @@ swiss_address_2 = ['le Pont, suisse', 'Orbe, suisse',' St-légier', 'yverdon-les
   Consultation.create!(tour: tour_3, patient: patient_3)
   Consultation.create!(tour: tour_3, patient: patient_2)
   Consultation.create!(tour: tour_3, patient: patient_4)
-  Consultation.create!(tour: tour_3, patient: patient_5)
+
 
 
   PatientCare.create!(patient: patient, care: care)
