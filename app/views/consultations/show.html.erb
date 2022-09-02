@@ -45,15 +45,23 @@
     </div>
   </div>
 
-  <div class="cheklist">
-
-        <% @consultation.patient.patient_cares.each do |patient_care| %>
-          <p><%= patient_care.care.description %></p>
-          <p><%= patient_care.care.name %></p>
-        <% end %>
-
-
-
+  <div class="cheklist" data-controller='checklist' data-checklist-consultation-value="<%= @consultation.id%>" >
+    <div class="card-body">
+      <p class="display-4" data-checklist-target='validated_cares'>There are my checklist</p>
+      <% @consultation.patient.patient_cares.each do |patient_care| %>
+        <div class="input-group mb-3">
+          <div class="input-group-text">
+            <input data-action="click->checklist#checklist"
+            data-checklist-target="checkbox" <%= patient_care.checked? ? 'checked' : '' %>
+            data-validated='<%= @consultation.validated_care_id(patient_care.care) if patient_care.checked? %>'
+            class="form-check-input mt-0"
+            type="checkbox"
+            value="<%= patient_care.care.id %>">
+          </div>
+            <p><%= patient_care.care.description %></p>
+            <p><%= patient_care.care.name %></p>
+        </div>
+      <% end %>
+    </div>
   </div>
-
 </div>
