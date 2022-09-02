@@ -13,12 +13,12 @@ require "csv"
 filepath = File.read(Rails.root.join('db', 'anamneses.csv'))
 
 #destroy existing seed
-Care.destroy_all
 PatientCare.destroy_all
-Patient.destroy_all
-Consultation.destroy_all
-Tour.destroy_all
 Anamnesis.destroy_all
+Care.destroy_all
+Consultation.destroy_all
+Patient.destroy_all
+Tour.destroy_all
 User.destroy_all
 
 #generate a Nurse
@@ -134,12 +134,20 @@ swiss_address_2 = ['le Pont, suisse', 'Orbe, suisse',' St-légier', 'yverdon-les
 
   Consultation.create!(tour: tour, patient: patient)
   Consultation.create!(tour: tour, patient: patient_2)
+  Consultation.create!(tour: tour, patient: patient_3)
+  Consultation.create!(tour: tour, patient: patient_4)
 
   Consultation.create!(tour: tour_2, patient: patient)
-  Consultation.create!(tour: tour_2, patient: patient_2)
+  Consultation.create!(tour: tour_2, patient: patient_4)
+  Consultation.create!(tour: tour_2, patient: patient)
+  Consultation.create!(tour: tour_2, patient: patient_3)
 
   Consultation.create!(tour: tour_3, patient: patient)
   Consultation.create!(tour: tour_3, patient: patient_3)
+  Consultation.create!(tour: tour_3, patient: patient_2)
+  Consultation.create!(tour: tour_3, patient: patient_4)
+
+
 
   PatientCare.create!(patient: patient, care: care)
   PatientCare.create!(patient: patient_2, care: care_2)
