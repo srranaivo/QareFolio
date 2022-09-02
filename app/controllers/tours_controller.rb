@@ -14,6 +14,7 @@ class ToursController < ApplicationController
     @consultations = @tour.consultations.order(:position)
   end
 
+
   def map
     @tour_id = params[:tour_id]
     consultations = Tour.find(params[:tour_id]).consultations
@@ -21,6 +22,7 @@ class ToursController < ApplicationController
     url_creation = create_url(consultations)
     url_encoded = url_creation[:url]
     consultation_initial_order = url_creation[:initial_order]
+    p url_encoded
 
     #call the api and parse in json format
     content = URI.open(url_encoded).read

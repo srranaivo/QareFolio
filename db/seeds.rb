@@ -30,13 +30,17 @@ nurse.save!
 tour = Tour.new(date: Date.today, user: nurse)
 tour.save!
 
+tour_2 = Tour.new(date: 1.day.from_now, user: nurse)
+tour_2.save!
+
 #generate cares
- care = Care.create!(
- name: "Injection sous-cutanée",
- description: "désinfection de la peau puis injecter calciparine")
+care = Care.create!(
+name: "Injection sous-cutanée",
+description: "désinfection de la peau puis injecter calciparine")
 
 
 swiss_address = ['Rue de la gare 2, le Brassus', 'Villard-sous-yens',' St-légier', 'yverdon-les-bains']
+swiss_address_2 = ['le Pont, suisse', 'Orbe, suisse',' St-légier', 'yverdon-les-bains']
 
 #generate patients
 4.times do |i|
@@ -59,9 +63,22 @@ swiss_address = ['Rue de la gare 2, le Brassus', 'Villard-sous-yens',' St-légie
     gender: patient_gender
   )
 
+  patient_2 = Patient.create(
+    address: swiss_address_2[i],
+    first_name: patient_name_first,
+    last_name: patient_name_second,
+    birth_date: patient_age,
+    profile_pic: profile_pic_url,
+    gender: patient_gender
+  )
+
   patient.save!
   consultation = Consultation.new(tour: tour, patient: patient)
   consultation.save!
+
+  consultation_2 = Consultation.new(tour: tour_2, patient: patient_2)
+  consultation_2.save!
+
   patient_care = PatientCare.new(patient: patient, care: care)
   patient_care.save!
 

@@ -1,11 +1,44 @@
-<div class="container">
-  <h1>Ma tournée</h1>
-  <p>Tournée du : <%= @tour.date.strftime('%d %B %Y') %></p>
+<div class="container mt-3">
 
-  <div class="d-grid gap-2 mb-4">
-    <%= link_to "Commencer la tournée", tour_map_path(@tour), class:'btn btn-primary btn-lg px-4', method: :get %>
+    <div class="row mb-2">
+      <div class="col mt-2">
+        <div class="d-flex flex-column align-items-center">
+          <h1>Ma tournée</h1>
+          <p>Tournée du : <%= @tour.date.strftime('%d %B %Y') %></p>
+        </div>
+      </div>
+    </div>
+
+  <div class="row mb-5">
+    <div class="col d-flex align-items-center justify-content-start">
+      <% if (Tour.where(id: (@tour.id)-1).present?) %>
+        <%= link_to tour_path((@tour.id)-1) do %>
+          <button class="btn btn-primary">
+          <i class="fa-solid fa-arrow-left me-3"></i>
+          <%= Tour.find_by(id: (@tour.id)-1).date %>
+          </button>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="col d-flex align-items-center justify-content-end">
+      <% if (Tour.where(id: (@tour.id)+1).present?) %>
+        <%= link_to tour_path((@tour.id)+1) do %>
+          <button class="btn btn-primary">
+          <%= Tour.find_by(id: (@tour.id)+1).date %>
+          <i class="fa-solid fa-arrow-right ms-3"></i>
+          </button>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 
+  <div class="d-grid gap-2 mb-4">
+    <%= link_to tour_map_path(@tour), class:'btn btn-primary btn-lg px-4', method: :get do %>
+      <i class="fa-regular fa-map"></i>
+      <h4>Voir l'itinéraire</h4>
+    <% end %>
+  </div>
   <% @consultations.each do |consultation| %>
   <%= link_to consultation_path(consultation.id), class: "show-tours-card" do %>
     <div class="card mb-4">
@@ -13,7 +46,6 @@
         <h2 class="card-title">
           <%= consultation.patient.first_name %>
           <%= consultation.patient.last_name %>
-          <%= consultation.position %>
         </h2>
       </div>
       <div class="card-body">
@@ -31,8 +63,4 @@
     </div>
     <% end %>
   <% end %>
-
-  <div class="d-grid gap-2 mb-4">
-    <button class="btn btn-primary">Commencer la tournée</button>
-  </div>
 </div>
