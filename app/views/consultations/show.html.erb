@@ -9,11 +9,11 @@
       </h1>
     <div class="d-flex">
       <p class="me-4">
-        <span class="badge <%= @consultation.patient.gender == 'female' ? "bg-primary" : "bg-danger" %>">
+        <span class="badge <%= @consultation.patient.gender == 'female' ? "bg-primary" : "bg-secondary" %>">
           <%= @consultation.patient.gender %>
         </span>
       </p>
-      <p class="text-secondary">
+      <p class="text-black-50">
         <%= @consultation.patient.birth_date.strftime('%d, %B %Y') %>
       </p>
     </div>
@@ -57,25 +57,24 @@
     </div>
   </div>
 
-  <div class="cheklist" data-controller='checklist' data-checklist-consultation-value="<%= @consultation.id%>" >
-    <div class="card-body">
-      <p class="display-4" data-checklist-target='validated_cares'>There are my checklist</p>
-      <% @consultation.patient.patient_cares.each do |patient_care| %>
-        <div class="input-group mb-3">
-          <div class="input-group-text">
-            <input data-action="click->checklist#checklist"
-            data-checklist-target="checkbox" <%= patient_care.checked? ? 'checked' : '' %>
-            data-validated='<%= @consultation.validated_care_id(patient_care.care) if patient_care.checked? %>'
-            class="form-check-input mt-0"
-            type="checkbox"
-            value="<%= patient_care.care.id %>">
-          </div>
-            <p><%= patient_care.care.description %></p>
-            <p><%= patient_care.care.name %></p>
+  <div class="cheklist container d-flex flex-column" data-controller='checklist' data-checklist-consultation-value="<%= @consultation.id%>" >
+    <h4 class="mt-4 mb-4" data-checklist-target='validated_cares'>Soins à effectuer</h4>
+    <% @consultation.patient.patient_cares.each do |patient_care| %>
+      <div class="input-group mb-3 flex-fill">
+        <div class="input-group-text flex-fill">
+          <input data-action="click->checklist#checklist"
+          data-checklist-target="checkbox" <%= patient_care.checked? ? 'checked' : '' %>
+          data-validated='<%= @consultation.validated_care_id(patient_care.care) if patient_care.checked? %>'
+          class="form-check-input mt-0"
+          type="checkbox"
+          value="<%= patient_care.care.id %>">
+          <p class="mb-0 ms-3"><%= patient_care.care.description %></p>
+          <p class="mb-0 ms-3"><%= patient_care.care.name %></p>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
+
 
   <div class="d-flex justify-content-center mt-4 mb-4">
     <%= button_to "Valider les soins",
