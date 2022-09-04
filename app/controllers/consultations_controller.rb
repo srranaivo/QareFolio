@@ -8,4 +8,22 @@ class ConsultationsController < ApplicationController
     @google_maps_link = "#{base_url}#{address_encoded}"
     p "link is : " + @google_maps_link
   end
+
+  def update
+    @consultation = Consultation.find(params[:id])
+    p '   '
+    p params
+    p '    '
+    if @consultation.update(consultation_params)
+      redirect_to tour_path(@consultation.tour)
+    else
+      redirect_to consultation_path(@consultation), notice: "Error"
+    end
+  end
+
+  private
+
+  def consultation_params
+    params.require(:consultation).permit(:validated)
+  end
 end

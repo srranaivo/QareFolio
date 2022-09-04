@@ -10,10 +10,9 @@ class ToursController < ApplicationController
 
   def show
     @tour = Tour.find(params[:id])
-    #consultations must be sorted by order in existing
+    # consultations must be sorted by order in existing
     @consultations = @tour.consultations.order(:position)
   end
-
 
   def map
     @tour_id = params[:tour_id]

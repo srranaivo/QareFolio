@@ -27,8 +27,6 @@
     <% end %>
   </div>
 
-
-
   <div class="accordion mt-4">
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingOne">
@@ -38,23 +36,23 @@
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <% if @consultation.patient.anamneses.present? %>
-      <% @consultation.patient.anamneses.each do |anamnesis| %>
-        <div class="accordion-body">
-          <div class="d-flex">
-            <% if anamnesis.date.present? %>
-            <p class="me-4">
-              <strong>
-                  <%= anamnesis.date.strftime('%Y') %>
-              </strong>
-            </p>
-            <% end %>
-            <p>
-            <%= anamnesis.description %>
-            </p>
+        <% @consultation.patient.anamneses.each do |anamnesis| %>
+          <div class="accordion-body">
+            <div class="d-flex">
+              <% if anamnesis.date.present? %>
+              <p class="me-4">
+                <strong>
+                    <%= anamnesis.date.strftime('%Y') %>
+                </strong>
+              </p>
+              <% end %>
+              <p>
+              <%= anamnesis.description %>
+              </p>
+            </div>
           </div>
-        </div>
-          <% end %>
         <% end %>
+      <% end %>
       </div>
     </div>
   </div>
@@ -77,5 +75,13 @@
         </div>
       <% end %>
     </div>
+  </div>
+
+  <div class="d-grid mt-4 mb-4">
+    <%= button_to "Valider les soins",
+    consultation_path(@consultation),
+    class: "btn btn-primary",
+    params: {consultation: {validated: true}},
+    method: :put %>
   </div>
 </div>
