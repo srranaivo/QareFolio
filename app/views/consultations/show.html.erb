@@ -37,19 +37,23 @@
         </button>
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-       <% if @consultation.patient.anamneses.present? %>
+      <% if @consultation.patient.anamneses.present? %>
+      <% @consultation.patient.anamneses.each do |anamnesis| %>
         <div class="accordion-body">
           <div class="d-flex">
+            <% if anamnesis.date.present? %>
             <p class="me-4">
               <strong>
-                  <%= @consultation.patient.anamneses.first.date.strftime('%Y') %>
+                  <%= anamnesis.date.strftime('%Y') %>
               </strong>
             </p>
+            <% end %>
             <p>
-            <%= @consultation.patient.anamneses.first.description %>
+            <%= anamnesis.description %>
             </p>
           </div>
         </div>
+          <% end %>
         <% end %>
       </div>
     </div>
