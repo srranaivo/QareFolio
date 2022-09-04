@@ -11,9 +11,6 @@ class ConsultationsController < ApplicationController
 
   def update
     @consultation = Consultation.find(params[:id])
-    p '   '
-    p params
-    p '    '
     if @consultation.update(consultation_params)
       redirect_to tour_path(@consultation.tour)
     else
