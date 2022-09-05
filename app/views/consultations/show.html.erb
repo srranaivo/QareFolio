@@ -1,7 +1,7 @@
 <div class="container">
 
   <div class="show-consultations-profile d-flex flex-row mt-4">
-    <img class="ms-2 me-4" src="<%= @consultation.patient.profile_pic%>" alt="">
+    <img class="ms-2 me-4" src="<%= @consultation.patient.picture_url%>" alt="">
     <div class="d-flex flex-column">
       <h1>
         <%= @consultation.patient.first_name %>
@@ -14,7 +14,7 @@
         </span>
       </p>
       <p class="text-black-50">
-        <%= @consultation.patient.birth_date.strftime('%d, %B %Y') %>
+        <%= @consultation.patient.birth_date.strftime("%d/%m/%Y") %>
       </p>
     </div>
 
@@ -23,7 +23,7 @@
 
   <div class="d-grid mt-4 mb-4">
     <%= link_to @google_maps_link, class: "btn btn-primary" do %>
-      Se rendre chez <%= @consultation.patient.first_name %></l>
+      <p>Se rendre chez <%= @consultation.patient.first_name %></p>
     <% end %>
   </div>
 

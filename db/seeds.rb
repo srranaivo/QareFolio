@@ -177,7 +177,8 @@ address: "Chem. des Orchez 20, 1066 Epalinges",
 first_name: "Aline",
 last_name: "Bally",
 birth_date: "02.07.1957",
-gender: "female"
+gender: "female",
+picture_url: "/assets/patient_1.jpg"
 )
 
 patient_2 = Patient.create!(
@@ -185,16 +186,17 @@ address: "Av. de Montchoisi 41, 1006 Lausanne",
 first_name: "Gisèle",
 last_name: " Zermatten ",
 birth_date: "12.06.1991",
-gender: "female"
+gender: "female",
+picture_url: "/assets/patient_2.jpg"
 )
 
 patient_3 = Patient.create!(
-
 address: "chemin du Vallon 10 Bussigny ",
 first_name: "Jeanne",
 last_name: "Testaz",
 birth_date: "27.03.1952",
-gender: "female"
+gender: "female",
+picture_url: "/assets/patient_3.jpg"
 )
 
 patient_4 = Patient.create!(
@@ -202,7 +204,8 @@ address: "Av. de Montoie 19, 1007 Lausanne",
 first_name: "Géraldine",
 last_name: "Da Silva",
 birth_date: "11.12.1968",
-gender: "female"
+gender: "female",
+picture_url: "/assets/patient_4.jpg"
 )
 
 patient_5 = Patient.create!(
@@ -210,7 +213,8 @@ address: "Rue de morges 14 Crissier",
 first_name: "Thomas",
 last_name: "Breuveau",
 birth_date: "21.02.1969",
-gender: "male"
+gender: "male",
+picture_url: "/assets/patient_5.jpg"
 )
 
 patient_6 = Patient.create!(
@@ -218,7 +222,8 @@ address: "Avenue de France 98, 1004 Lausanne",
 first_name: "Aurélie",
 last_name: "Claivaz",
 birth_date: "25.07.1986",
-gender: "female"
+gender: "female",
+picture_url: "/assets/patient_6.jpg"
 )
 
 patient_7 = Patient.create!(
@@ -226,7 +231,8 @@ address: "Chemin de l'Union 4, 1008 Prilly",
 first_name: "Yvette",
 last_name: "Flon",
 birth_date: "18.04.1950",
-gender: "female"
+gender: "female",
+picture_url: "/assets/patient_7.jpg"
 )
 
 patient_8 = Patient.create!(
@@ -234,7 +240,8 @@ address: "Chemin des Planches 6, 1008 Prilly",
 first_name: "Aude",
 last_name: "Berset",
 birth_date: "16.12.1982",
-gender: "female"
+gender: "female",
+picture_url: "/assets/patient_8.jpg"
 )
 
 patient_9 = Patient.create!(
@@ -242,7 +249,8 @@ address: "Chemin du Chêne 9, 1052 Le Mont-sur-Lausanne",
 first_name: "Jacques",
 last_name: "Crettenand",
 birth_date: "20.08.1949",
-gender: "male"
+gender: "male",
+picture_url: "/assets/patient_9.jpg"
 )
 
 patient_10 = Patient.create!(
@@ -250,7 +258,8 @@ address: "Avenue des Alpes, 1009 Pully",
 first_name: "Elisabeth",
 last_name: "Morard",
 birth_date: "10.01.1926",
-gender: "female"
+gender: "female",
+picture_url: "/assets/patient_10.jpg"
 )
 
 patient_11 = Patient.create!(
@@ -258,7 +267,8 @@ address: "Avenue des Cerisiers 7, 1009 Pully",
 first_name: "Gérard",
 last_name: "Frémont",
 birth_date: "27.03.1947",
-gender: "male"
+gender: "male",
+picture_url: "/assets/patient_11.jpg"
 )
 
 patient_12 = Patient.create!(
@@ -266,7 +276,8 @@ address: "Avenue d'Ouchy 31, 1006 Lausanne",
 first_name: "Yann",
 last_name: "Studer",
 birth_date: "06.05.1966",
-gender: "male"
+gender: "male",
+picture_url: "/assets/patient_12.jpg"
 )
 
 patient_13 = Patient.create!(
@@ -274,7 +285,8 @@ address: "Rue du Midi, 1003 Lausanne",
 first_name: "Sylvie",
 last_name: "Monnet",
 birth_date: "04.10.1962",
-gender: "female"
+gender: "female",
+picture_url: "/assets/patient_13.jpg"
 )
 
 patient_14 = Patient.create!(
@@ -282,7 +294,8 @@ address: "Avenue de Tivoli 32, 1007 Lausanne",
 first_name: "Gilles",
 last_name: "Boccardo",
 birth_date: "22.09.1943",
-gender: "male"
+gender: "male",
+picture_url: "/assets/patient_14.jpg"
 )
 
 patient_15 = Patient.create!(
@@ -290,7 +303,8 @@ address: "Chemin de Montelly 39, 1007 Lausanne",
 first_name: "Laurent",
 last_name: "Ruchet",
 birth_date: "29.11.1955",
-gender: "male"
+gender: "male",
+picture_url: "/assets/patient_15.jpg"
 )
 
 patient_16 = Patient.create!(
@@ -298,7 +312,8 @@ address: "Rue du Lac 42, 1020 Renens",
 first_name: "Raymond",
 last_name: "Rochat",
 birth_date: "24.09.1943",
-gender: "male"
+gender: "male",
+picture_url: "/assets/patient_16.jpg"
 )
 
 patient_17 = Patient.create!(
@@ -306,7 +321,8 @@ address: "Rue du Lac 42, 1020 Renens",
 first_name: "Nadine",
 last_name: "Gomes",
 birth_date: "11.12.1996",
-gender: "female"
+gender: "female",
+picture_url: "/assets/patient_17.jpg"
 )
 
 Consultation.create!(tour: tour_1, patient: patient_1)
