@@ -2,6 +2,8 @@ class ConsultationsController < ApplicationController
   def show
     @consultation = Consultation.find(params[:id])
 
+    @validated_cares = ValidatedCare.includes(:care).where(consultation: @consultation).order(:id)
+
     address = @consultation.patient.address
     address_encoded = url_encode(address)
     base_url = 'https://www.google.com/maps/search/?api=1&query='

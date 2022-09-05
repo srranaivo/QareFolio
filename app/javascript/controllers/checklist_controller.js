@@ -2,21 +2,18 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="checklist"
 export default class extends Controller {
-  static targets = ['validated_cares', 'checkbox']
+  static targets = ['checkbox']
   static values = {consultation: Number}
 
   connect() {
-    console.log("is checked:", this.checkboxTarget.checked);
-    console.log("care id:", this.checkboxTarget.value);
-    console.log("My checklist", this.element)
-    console.log("validated:", this.checkboxTarget.dataset.validated);
-    }
+    console.log("checkbox"), this.checkboxTarget
+
+  }
 
   checklist(e) {
-
-    this.validated_caresTarget.innerHTML = "Ce soin est effectué"
-
-    if(this.checkboxTarget.checked) {
+    console.log(this.element)
+    this.element.submit();
+/*     if(this.checkboxTarget.checked) {
       fetch(`/consultations/${this.consultationValue}/validated_cares`, {
         method: "POST",
         headers: {
@@ -26,7 +23,7 @@ export default class extends Controller {
         },
         body: JSON.stringify({"care_id": e.target.value})
       })
-    } else {
+    } else { */
       /* only works if html is rerender after delete  */
 
       // fetch(`/consultations/${this.consultationValue}/validated_cares/${this.checkboxTarget.dataset.validated}`, {
@@ -41,9 +38,9 @@ export default class extends Controller {
     }
 
   }
-  #getMetaValue() {
+/*   #getMetaValue() {
     const element = document.head.querySelector(`meta[name="csrf-token"]`)
     console.log(element)
     return element.getAttribute("content")
-  }
-}
+  } */
+/* } */

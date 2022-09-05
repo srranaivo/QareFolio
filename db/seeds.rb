@@ -14,6 +14,7 @@ filepath = File.read(Rails.root.join('db', 'anamneses.csv'))
 
 #destroy existing seed
 Anamnesis.destroy_all
+ValidatedCare.destroy_all
 Consultation.destroy_all
 Tour.destroy_all
 User.destroy_all
@@ -309,33 +310,6 @@ birth_date: "11.12.1996",
 gender: "female"
 )
 
-Consultation.create!(tour: tour_1, patient: patient_1)
-Consultation.create!(tour: tour_1, patient: patient_2)
-Consultation.create!(tour: tour_1, patient: patient_3)
-Consultation.create!(tour: tour_1, patient: patient_4)
-Consultation.create!(tour: tour_1, patient: patient_5)
-Consultation.create!(tour: tour_1, patient: patient_6)
-
-Consultation.create!(tour: tour_2, patient: patient_1)
-Consultation.create!(tour: tour_2, patient: patient_2)
-Consultation.create!(tour: tour_2, patient: patient_3)
-Consultation.create!(tour: tour_2, patient: patient_5)
-Consultation.create!(tour: tour_2, patient: patient_7)
-Consultation.create!(tour: tour_2, patient: patient_8)
-
-Consultation.create!(tour: tour_3, patient: patient_1)
-Consultation.create!(tour: tour_3, patient: patient_2)
-Consultation.create!(tour: tour_3, patient: patient_8)
-Consultation.create!(tour: tour_3, patient: patient_9)
-Consultation.create!(tour: tour_3, patient: patient_10)
-Consultation.create!(tour: tour_3, patient: patient_11)
-
-Consultation.create!(tour: tour_4, patient: patient_12)
-Consultation.create!(tour: tour_4, patient: patient_13)
-Consultation.create!(tour: tour_4, patient: patient_14)
-Consultation.create!(tour: tour_4, patient: patient_15)
-Consultation.create!(tour: tour_4, patient: patient_16)
-Consultation.create!(tour: tour_4, patient: patient_17)
 
 PatientCare.create!(patient: patient_1, care: care_1)
 PatientCare.create!(patient: patient_1, care: care_2)
@@ -405,6 +379,33 @@ PatientCare.create!(patient: patient_17, care: care_18)
 PatientCare.create!(patient: patient_17, care: care_16)
 PatientCare.create!(patient: patient_17, care: care_26)
 
+Consultation.create!(tour: tour_1, patient: patient_1)
+Consultation.create!(tour: tour_1, patient: patient_2)
+Consultation.create!(tour: tour_1, patient: patient_3)
+Consultation.create!(tour: tour_1, patient: patient_4)
+Consultation.create!(tour: tour_1, patient: patient_5)
+Consultation.create!(tour: tour_1, patient: patient_6)
+
+Consultation.create!(tour: tour_2, patient: patient_1)
+Consultation.create!(tour: tour_2, patient: patient_2)
+Consultation.create!(tour: tour_2, patient: patient_3)
+Consultation.create!(tour: tour_2, patient: patient_5)
+Consultation.create!(tour: tour_2, patient: patient_7)
+Consultation.create!(tour: tour_2, patient: patient_8)
+
+Consultation.create!(tour: tour_3, patient: patient_1)
+Consultation.create!(tour: tour_3, patient: patient_2)
+Consultation.create!(tour: tour_3, patient: patient_8)
+Consultation.create!(tour: tour_3, patient: patient_9)
+Consultation.create!(tour: tour_3, patient: patient_10)
+Consultation.create!(tour: tour_3, patient: patient_11)
+
+Consultation.create!(tour: tour_4, patient: patient_12)
+Consultation.create!(tour: tour_4, patient: patient_13)
+Consultation.create!(tour: tour_4, patient: patient_14)
+Consultation.create!(tour: tour_4, patient: patient_15)
+Consultation.create!(tour: tour_4, patient: patient_16)
+Consultation.create!(tour: tour_4, patient: patient_17)
 # patient_care = PatientCare.new(patient: patient, care: care)
 # patient_care.save!
 
@@ -418,8 +419,8 @@ table = CSV.parse(filepath)
 # anamnesis.save!
 
 Anamnesis.create!(
-patient: patient_1,
-date: "1967-03-10",
+  patient: patient_1,
+  date: "1967-03-10",
 description: "Diabète"
 )
 
