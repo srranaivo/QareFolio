@@ -20,8 +20,17 @@
     <h1 class="display-5 fw-bold">Bonjour <%= current_user.first_name %></h1>
     <p class="col-md-8 fs-4">J'espère que vous allez bien ! <br> QareFolio vous accompagne tout au long de votre journeé.</p>
     <% if current_user.todays_tour %>
-      <p>Aujourd'hui vous avez <%= current_user.todays_tour.consultations.count %> patients à prendre en soin.</p>
+      <div class="d-flex flex-column justify-content-center align-itmes-center mt-5">
+        <div class="d-flex flex-column">
+          <h1 class="fw-bold text-primary align-self-center mb-3 patient-number">
+            <%= current_user.todays_tour.consultations.count %>
+          </h1>
+        </div>
+      <div class="d-flex justify-content-center align-itmes-center mt-2">
+        <p>patients à visiter aujourd'hui</p>
+      </div>
       <%= link_to 'Commencer ma tournée', tour_path(current_user.todays_tour), class:"btn btn-primary btn-lg" %>
+    </div>
     <% end %>
   </div>
 <% end %>
