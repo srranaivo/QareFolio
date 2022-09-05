@@ -17,7 +17,6 @@
         <%= @consultation.patient.birth_date.strftime("%d/%m/%Y") %>
       </p>
     </div>
-
     </div>
   </div>
 
@@ -57,21 +56,20 @@
     </div>
   </div>
 
-  <div class="cheklist container d-flex flex-column" data-controller='checklist' data-checklist-consultation-value="<%= @consultation.id%>" >
-    <h4 class="mt-4 mb-4" data-checklist-target='validated_cares'>Soins à effectuer</h4>
-    <% @consultation.patient.patient_cares.each do |patient_care| %>
-      <div class="input-group mb-3 flex-fill">
-        <div class="input-group-text flex-fill">
-          <input data-action="click->checklist#checklist"
-          data-checklist-target="checkbox" <%= patient_care.checked? ? 'checked' : '' %>
-          data-validated='<%= @consultation.validated_care_id(patient_care.care) if patient_care.checked? %>'
-          class="form-check-input mt-0"
-          type="checkbox"
-          value="<%= patient_care.care.id %>">
-          <p class="mb-0 ms-3"><%= patient_care.care.description %></p>
-          <p class="mb-0 ms-3"><%= patient_care.care.name %></p>
-        </div>
-      </div>
+  <div class="cheklist container d-flex flex-column">
+    <h4 class="mt-4 mb-4">Soins à effectuer</h4>
+    <% @validated_cares.each_with_index do |validated_care, i| %>
+      <%= form_with model: validated_care, method: :put,
+      html: {"data-controller":"checklist"},
+      class: "input-group-text flex-fill mb-3" do |form| %>
+        <%= form.check_box "checkbox#{i}",
+        checked: validated_care.done,
+        "data-checklist-target": "checkbox",
+        "data-action": "click->checklist#checklist",
+        class: "form-check-input mt-0"
+        %>
+        <%= form.label "checkbox#{i}", validated_care.care.name, class: "ms-4 label-checkbox" %>
+      <% end %>
     <% end %>
   </div>
 
