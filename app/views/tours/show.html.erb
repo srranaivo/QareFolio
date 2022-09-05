@@ -1,19 +1,9 @@
-<div class="container mt-3">
+<div class="container mt-4">
 
-    <div class="row mb-2">
-      <div class="col mt-2">
-        <div class="d-flex flex-column align-items-center">
-          <h1>Ma tournée</h1>
-          <p>Tournée du : <%= @tour.date.strftime("%m/%d/%Y") %></p>
-        </div>
-      </div>
-    </div>
-
-  <div class="row mb-5">
     <div class="col d-flex align-items-center justify-content-start">
       <% if (Tour.where(id: (@tour.id)-1).present?) %>
         <%= link_to tour_path((@tour.id)-1) do %>
-          <button class="btn btn-primary">
+          <button class="btn btn-outline-primary">
           <i class="fa-solid fa-arrow-left me-3"></i>
           <%= Tour.find_by(id: (@tour.id)-1).date.strftime("%m/%d/%Y") %>
           </button>
@@ -24,8 +14,10 @@
     <div class="col d-flex align-items-center justify-content-end">
       <% if (Tour.where(id: (@tour.id)+1).present?) %>
         <%= link_to tour_path((@tour.id)+1) do %>
+
           <button class="btn btn-primary">
           <%= Tour.find_by(id: (@tour.id)+1).date.strftime("%m/%d/%Y") %>
+
           <i class="fa-solid fa-arrow-right ms-3"></i>
           </button>
         <% end %>
@@ -33,34 +25,69 @@
     </div>
   </div>
 
-  <div class="d-grid gap-2 mb-4">
-    <%= link_to tour_map_path(@tour), class:'btn btn-primary btn-lg px-4', method: :get do %>
-      <i class="fa-regular fa-map"></i>
-      <h4>Voir l'itinéraire</h4>
-    <% end %>
-  </div>
-  <% @consultations.each do |consultation| %>
-  <%= link_to consultation_path(consultation.id), class: "show-tours-card" do %>
-    <div class="card mb-4">
-      <div class="card-header">
-        <h2 class="card-title">
-          <%= consultation.patient.first_name %>
-          <%= consultation.patient.last_name %>
-        </h2>
-      </div>
-      <div class="card-body">
-      <div class="d-flex flex-column">
-        <p> Adresse:
-          <%= consultation.patient.address %>
-        </p>
-        <p>Date de naissance:
-          <strong>
-            <%= consultation.patient.birth_date.strftime("%m/%d/%Y") %>
-          </strong>
-        </p>
-      </div>
+    <div class="mb-3 p-2">
+      <div class="col mt-2">
+        <div class="d-flex flex-column align-items-center">
+          <h1 class="fw-bold fs-1">Ma tournée</h1>
+          <p class="fs-6 text-black-50"><%= <%= @tour.date.strftime("%m/%d/%Y") %></p>
+          <% if @tour.is_finished? %>
+          <div>
+            <span>Bravo vous avez terminé votre tournée !</span>
+            <span class="fs-2 mb-2">👏</span>
+          </div>
+            <button class="btn btn-primary mt-3">Voir mon récapitulatif</button>
+          <% else %>
+          <div>
+            <span>Il vous reste <strong><%= @tour.pending_consultations %></strong> patients à soigner</span>
+            <span class="fs-2 mb-2">💪</span>
+          </div>
+          <% end %>
+        </div>
       </div>
     </div>
+  <div class="row mb-3">
+    <div class="col d-grid align-items-center">
+      <%= link_to tour_map_path(@tour), class:'btn btn-secondary btn-lg px-4', method: :get do %>
+        <i class="fa-regular fa-map"></i>
+        <h6>Itinéraire</h6>
+      <% end %>
+    </div>
+    <div class="col d-grid align-items-center">
+      <%= link_to tour_map_path(@tour), class:'btn btn-secondary btn-lg px-4', method: :get do %>
+        <i class="fa-regular fa-pen-to-square"></i>
+        <h6>Editer</h6>
+      <% end %>
+    </div>
+  </div>
+  <% @consultations.each do |consultation| %>
+    <%= link_to consultation_path(consultation.id), class: "show-tours-card" do %>
+      <div class="card mb-4">
+        <div class="card-body p-4">
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <div class="d-flex align-items-center">
+              <img class="avatar tour-show-img me-4" src="https://source.unsplash.com/random"></img>
+              <h2>
+                <%= consultation.patient.first_name %>
+                <%= consultation.patient.last_name %>
+              </h2>
+            </div>
+            <% if consultation.validated %>
+              <i class="fa-solid fa-check text-success fs-2"></i>
+            <% end %>
+          </div>
+          <div class="d-flex flex-column">
+            <p class="text-black-50">
+              <%= consultation.patient.address %>
+            </p>
+            <p class='m-0'>
+              <strong>
+              <i class="fa-regular fa-cake-candles"></i>
+                <%= consultation.patient.birth_date.strftime("%m/%d/%Y") %>
+              </strong>
+            </p>
+          </div>
+        </div>
+      </div>
     <% end %>
   <% end %>
 </div>

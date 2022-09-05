@@ -4,6 +4,8 @@ class Consultation < ApplicationRecord
   has_many :validated_cares
 
   def validated_care_id(care)
-    validated_cares.find_by(care: care).id
+    if validated_cares.find_by(care: care)
+      validated_cares.find_by(care: care).id
+    end
   end
 end
