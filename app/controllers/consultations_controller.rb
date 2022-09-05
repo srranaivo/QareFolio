@@ -1,4 +1,5 @@
 require "erb"
+include ERB::Util
 
 class ConsultationsController < ApplicationController
   def show

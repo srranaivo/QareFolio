@@ -35,7 +35,6 @@ class ToursController < ApplicationController
       final_index = waypoint_order.find_index(initial_index)
       consultation.update(position: final_index)
     end
-
     # we respond differently if the front request or the back
     respond_to do |format|
       format.html # Follow regular flow of Rails
