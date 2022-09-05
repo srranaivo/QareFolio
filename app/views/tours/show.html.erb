@@ -1,12 +1,11 @@
 <div class="container mt-4">
 
-  <div class="row mb-1">
     <div class="col d-flex align-items-center justify-content-start">
       <% if (Tour.where(id: (@tour.id)-1).present?) %>
         <%= link_to tour_path((@tour.id)-1) do %>
           <button class="btn btn-outline-primary">
           <i class="fa-solid fa-arrow-left me-3"></i>
-          <%= Tour.find_by(id: (@tour.id)-1).date %>
+          <%= Tour.find_by(id: (@tour.id)-1).date.strftime("%m/%d/%Y") %>
           </button>
         <% end %>
       <% end %>
@@ -15,8 +14,10 @@
     <div class="col d-flex align-items-center justify-content-end">
       <% if (Tour.where(id: (@tour.id)+1).present?) %>
         <%= link_to tour_path((@tour.id)+1) do %>
-          <button class="btn btn-outline-primary">
-          <%= Tour.find_by(id: (@tour.id)+1).date %>
+
+          <button class="btn btn-primary">
+          <%= Tour.find_by(id: (@tour.id)+1).date.strftime("%m/%d/%Y") %>
+
           <i class="fa-solid fa-arrow-right ms-3"></i>
           </button>
         <% end %>
@@ -28,7 +29,7 @@
       <div class="col mt-2">
         <div class="d-flex flex-column align-items-center">
           <h1 class="fw-bold fs-1">Ma tournée</h1>
-          <p class="fs-6 text-black-50"><%= @tour.date.strftime('%d %B %Y') %></p>
+          <p class="fs-6 text-black-50"><%= <%= @tour.date.strftime("%m/%d/%Y") %></p>
           <% if @tour.is_finished? %>
           <div>
             <span>Bravo vous avez terminé votre tournée !</span>
@@ -44,7 +45,6 @@
         </div>
       </div>
     </div>
-
   <div class="row mb-3">
     <div class="col d-grid align-items-center">
       <%= link_to tour_map_path(@tour), class:'btn btn-secondary btn-lg px-4', method: :get do %>
@@ -82,7 +82,7 @@
             <p class='m-0'>
               <strong>
               <i class="fa-regular fa-cake-candles"></i>
-                <%= consultation.patient.birth_date.strftime('%d %B %Y') %>
+                <%= consultation.patient.birth_date.strftime("%m/%d/%Y") %>
               </strong>
             </p>
           </div>
