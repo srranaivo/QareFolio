@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :tours do
     get "map", to: "tours#map"
+    get "finish", to: "tours#finish"
   end
   resources :consultations, only: [:show, :update] do
     resources :validated_cares, only: [:create, :destroy]
