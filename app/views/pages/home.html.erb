@@ -10,7 +10,7 @@
       <h2 class="lead">Votre partenaire tout en un !</h2>
       <p>Ne perdez plus votre temps à chercher les informations sur vos patients ni à caluler vos itinéraires chaque jour.</p>
       <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-      <%= button_to "Register", new_user_registration_path, class:'btn btn-primary btn-lg px-4 me-md-2', method: :get%>
+      <%= button_to "S'inscrire", new_user_registration_path, class:'btn btn-primary btn-lg px-4 me-md-2', method: :get%>
       </div>
     </div>
   </div>
@@ -18,9 +18,9 @@
 <% else %>
   <div class="container py-5">
     <h1 class="display-5 fw-bold">Bonjour <%= current_user.first_name %></h1>
-    <p class="col-md-8 fs-4">J'espère que vous allez bien ! <br> QareFolio vous accompagne tout au long de votre journeé.</p>
+    <p class="col-md-8 fs-4">J'espère que vous allez bien ! <br> QareFolio vous accompagne tout au long de votre journée.</p>
     <% if current_user.todays_tour %>
-      <p>Aujourd'hui vous avez <%= current_user.todays_tour.consultations.count %> patients à prendre en soin.</p>
+      <h3>Aujourd'hui vous avez <strong><%= current_user.todays_tour.consultations.count %></strong> patients à prendre en soin.</h3>
       <%= link_to 'Commencer ma tournée', tour_path(current_user.todays_tour), class:"btn btn-primary btn-lg" %>
     <% end %>
   </div>

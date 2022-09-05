@@ -4,7 +4,7 @@
       <div class="col mt-2">
         <div class="d-flex flex-column align-items-center">
           <h1>Ma tournée</h1>
-          <p>Tournée du : <%= @tour.date.strftime('%d %B %Y') %></p>
+          <p>Tournée du : <%= @tour.date.strftime("%m/%d/%Y") %></p>
         </div>
       </div>
     </div>
@@ -15,7 +15,7 @@
         <%= link_to tour_path((@tour.id)-1) do %>
           <button class="btn btn-primary">
           <i class="fa-solid fa-arrow-left me-3"></i>
-          <%= Tour.find_by(id: (@tour.id)-1).date %>
+          <%= Tour.find_by(id: (@tour.id)-1).date.strftime("%m/%d/%Y") %>
           </button>
         <% end %>
       <% end %>
@@ -25,7 +25,7 @@
       <% if (Tour.where(id: (@tour.id)+1).present?) %>
         <%= link_to tour_path((@tour.id)+1) do %>
           <button class="btn btn-primary">
-          <%= Tour.find_by(id: (@tour.id)+1).date %>
+          <%= Tour.find_by(id: (@tour.id)+1).date.strftime("%m/%d/%Y") %>
           <i class="fa-solid fa-arrow-right ms-3"></i>
           </button>
         <% end %>
@@ -50,12 +50,12 @@
       </div>
       <div class="card-body">
       <div class="d-flex flex-column">
-        <p>
+        <p> Adresse:
           <%= consultation.patient.address %>
         </p>
-        <p>
+        <p>Date de naissance:
           <strong>
-            <%= consultation.patient.birth_date.strftime('%d %B %Y') %>
+            <%= consultation.patient.birth_date.strftime("%m/%d/%Y") %>
           </strong>
         </p>
       </div>
