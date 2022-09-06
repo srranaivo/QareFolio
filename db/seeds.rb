@@ -179,7 +179,7 @@ first_name: "Aline",
 last_name: "Bally",
 birth_date: "02.07.1957",
 gender: "female",
-picture_url: "patient_1.jpg"
+picture_url: "/assets/patient_1.jpg"
 )
 
 patient_2 = Patient.create!(
@@ -188,7 +188,7 @@ first_name: "Gisèle",
 last_name: " Zermatten ",
 birth_date: "12.06.1991",
 gender: "female",
-picture_url: "patient_2.jpg"
+picture_url: "/assets/patient_2.jpg"
 )
 
 patient_3 = Patient.create!(
@@ -197,7 +197,7 @@ first_name: "Jeanne",
 last_name: "Testaz",
 birth_date: "27.03.1952",
 gender: "female",
-picture_url: "patient_3.jpg"
+picture_url: "/assets/patient_3.jpg"
 )
 
 patient_4 = Patient.create!(
@@ -206,7 +206,7 @@ first_name: "Géraldine",
 last_name: "Da Silva",
 birth_date: "11.12.1968",
 gender: "female",
-picture_url: "patient_4.jpg"
+picture_url: "/assets/patient_4.jpg"
 )
 
 patient_5 = Patient.create!(
@@ -215,7 +215,7 @@ first_name: "Thomas",
 last_name: "Breuveau",
 birth_date: "21.02.1969",
 gender: "male",
-picture_url: "patient_5.jpg"
+picture_url: "/assets/patient_5.jpg"
 )
 
 patient_6 = Patient.create!(
@@ -224,7 +224,7 @@ first_name: "Aurélie",
 last_name: "Claivaz",
 birth_date: "25.07.1986",
 gender: "female",
-picture_url: "patient_6.jpg"
+picture_url: "/assets/patient_6.jpg"
 )
 
 patient_7 = Patient.create!(
@@ -233,7 +233,7 @@ first_name: "Yvette",
 last_name: "Flon",
 birth_date: "18.04.1950",
 gender: "female",
-picture_url: "patient_7.jpg"
+picture_url: "/assets/patient_7.jpg"
 )
 
 patient_8 = Patient.create!(
@@ -242,7 +242,7 @@ first_name: "Aude",
 last_name: "Berset",
 birth_date: "16.12.1982",
 gender: "female",
-picture_url: "patient_8.jpg"
+picture_url: "/assets/patient_8.jpg"
 )
 
 patient_9 = Patient.create!(
@@ -251,7 +251,7 @@ first_name: "Jacques",
 last_name: "Crettenand",
 birth_date: "20.08.1949",
 gender: "male",
-picture_url: "patient_9.jpg"
+picture_url: "/assets/patient_9.jpg"
 )
 
 patient_10 = Patient.create!(
@@ -260,7 +260,7 @@ first_name: "Elisabeth",
 last_name: "Morard",
 birth_date: "10.01.1926",
 gender: "female",
-picture_url: "patient_10.jpg"
+picture_url: "/assets/patient_10.jpg"
 )
 
 patient_11 = Patient.create!(
@@ -269,7 +269,7 @@ first_name: "Gérard",
 last_name: "Frémont",
 birth_date: "27.03.1947",
 gender: "male",
-picture_url: "patient_11.jpg"
+picture_url: "/assets/patient_11.jpg"
 )
 
 patient_12 = Patient.create!(
@@ -278,7 +278,7 @@ first_name: "Yann",
 last_name: "Studer",
 birth_date: "06.05.1966",
 gender: "male",
-picture_url: "patient_12.jpg"
+picture_url: "/assets/patient_12.jpg"
 )
 
 patient_13 = Patient.create!(
@@ -287,7 +287,7 @@ first_name: "Sylvie",
 last_name: "Monnet",
 birth_date: "04.10.1962",
 gender: "female",
-picture_url: "patient_13.jpg"
+picture_url: "/assets/patient_13.jpg"
 )
 
 patient_14 = Patient.create!(
@@ -296,7 +296,7 @@ first_name: "Gilles",
 last_name: "Boccardo",
 birth_date: "22.09.1943",
 gender: "male",
-picture_url: "patient_14.jpg"
+picture_url: "/assets/patient_14.jpg"
 )
 
 patient_15 = Patient.create!(
@@ -305,7 +305,7 @@ first_name: "Laurent",
 last_name: "Ruchet",
 birth_date: "29.11.1955",
 gender: "male",
-picture_url: "patient_15.jpg"
+picture_url: "/assets/patient_15.jpg"
 )
 
 patient_16 = Patient.create!(
@@ -314,7 +314,7 @@ first_name: "Raymond",
 last_name: "Rochat",
 birth_date: "24.09.1943",
 gender: "male",
-picture_url: "patient_16.jpg"
+picture_url: "/assets/patient_16.jpg"
 )
 
 patient_17 = Patient.create!(
@@ -323,7 +323,7 @@ first_name: "Nadine",
 last_name: "Gomes",
 birth_date: "11.12.1996",
 gender: "female",
-picture_url: "patient_17.jpg"
+picture_url: "/assets/patient_17.jpg"
 )
 
 
