@@ -48,6 +48,8 @@ class ToursController < ApplicationController
     @nb_consultation = @tour.consultations.count
   end
 
+
+
   private
 
   def create_url(consul)
