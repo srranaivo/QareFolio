@@ -2,23 +2,19 @@
 
   <div class="row mb-1">
     <div class="col d-flex align-items-center justify-content-start">
-      <% if (Tour.where(id: (@tour.id)-1).present?) %>
-        <%= link_to tour_path((@tour.id)-1) do %>
-          <button class="btn btn-outline-primary">
-          <i class="fa-solid fa-arrow-left me-3"></i>
-          <%= Tour.find_by(id: (@tour.id)-1).date.strftime("%d/%m/%Y") %>
-          </button>
+      <% unless @tour.previous.nil? %>
+        <%= link_to tour_path(@tour.previous), class: "btn btn-outline-primary" do %>
+        <i class="fa-solid fa-arrow-left me-3"></i>
+          Précédent
         <% end %>
       <% end %>
     </div>
 
     <div class="col d-flex align-items-center justify-content-end">
-      <% if (Tour.where(id: (@tour.id)+1).present?) %>
-        <%= link_to tour_path((@tour.id)+1) do %>
-          <button class="btn btn-outline-primary">
-          <%= Tour.find_by(id: (@tour.id)+1).date.strftime("%d/%m/%Y") %>
+      <% unless @tour.next.nil? %>
+        <%= link_to tour_path(@tour.next), class: "btn btn-outline-primary" do %>
+        <span>Suivant </span>
           <i class="fa-solid fa-arrow-right ms-3"></i>
-          </button>
         <% end %>
       <% end %>
     </div>
@@ -74,7 +70,7 @@
         <div class="card-body p-4">
           <div class="d-flex align-items-center justify-content-between mb-3">
             <div class="d-flex align-items-center">
-            <img class="avatar tour-show-img me-4" src=<%= consultation.patient.picture_url %>>
+            <%= image_tag consultation.patient.picture_url, alt: "Photo de patient", class: "avatar tour-show-img me-4" %>
               <h2>
                 <%= consultation.patient.first_name %>
                 <%= consultation.patient.last_name %>
