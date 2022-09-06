@@ -21,6 +21,13 @@ class ToursController < ApplicationController
     end
     # consultations must be sorted by order in existing
     @consultations = @tour.consultations.order(:position)
+
+    @travel_infos = []
+    @tour.map_data['routes'][0]['legs'].each do |route|
+      @travel_infos << { distance: route['distance']['text'], duration: route['duration']['text'] }
+    end
+    p @travel_infos
+
   end
 
   def optimize_tour(tour_id)
