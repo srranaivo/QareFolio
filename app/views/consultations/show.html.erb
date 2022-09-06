@@ -1,7 +1,7 @@
 <div class="container">
 
   <div class="show-consultations-profile d-flex flex-row mt-4">
-    <img class="ms-2 me-4" src="<%= @consultation.patient.picture_url%>" alt="">
+    <%= image_tag @consultation.patient.picture_url, alt: "Photo de patient", class: "ms-2 me-4" %>
     <div class="d-flex flex-column">
       <h1>
         <%= @consultation.patient.first_name %>
