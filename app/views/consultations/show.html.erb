@@ -22,7 +22,7 @@
 
   <div class="d-grid mt-4 mb-4">
     <%= link_to @google_maps_link, class: "btn btn-primary" do %>
-      <p>Se rendre chez <%= @consultation.patient.first_name %></p>
+      Se rendre chez <%= @consultation.patient.first_name %>
     <% end %>
   </div>
 
@@ -35,8 +35,8 @@
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <% if @consultation.patient.anamneses.present? %>
-        <% @consultation.patient.anamneses.each do |anamnesis| %>
-          <div class="accordion-body">
+        <div class="accordion-body">
+          <% @consultation.patient.anamneses.each do |anamnesis| %>
             <div class="d-flex">
               <% if anamnesis.date.present? %>
               <p class="me-4">
@@ -49,8 +49,8 @@
               <%= anamnesis.description %>
               </p>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       <% end %>
       </div>
     </div>
@@ -71,6 +71,11 @@
         <%= form.label "checkbox#{i}", validated_care.care.name, class: "ms-4 label-checkbox" %>
       <% end %>
     <% end %>
+  </div>
+
+
+  <div class="container">
+
   </div>
 
 

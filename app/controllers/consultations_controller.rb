@@ -1,3 +1,6 @@
+require "erb"
+include ERB::Util
+
 class ConsultationsController < ApplicationController
   def show
     @consultation = Consultation.find(params[:id])
