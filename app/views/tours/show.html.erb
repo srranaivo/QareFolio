@@ -45,7 +45,7 @@
   <div class="row mb-3">
     <div class="d-grid">
       <%= link_to "", class:'btn btn-primary btn-lg px-4', method: :get do %>
-        Optimiser ma tournée
+        Continer ma tournée
       <% end %>
     </div>
   </div>
@@ -64,40 +64,69 @@
       <% end %>
     </div>
   </div>
-  <% @consultations.each do |consultation| %>
-    <%= link_to consultation_path(consultation.id), class: "show-tours-card" do %>
-      <div class="card mb-4">
-        <div class="card-body p-4">
-          <div class="d-flex align-items-center justify-content-between mb-3">
-            <div class="d-flex align-items-center">
-            <%= image_tag consultation.patient.picture_url, alt: "Photo de patient", class: "avatar tour-show-img me-4" %>
-              <h2>
-                <%= consultation.patient.first_name %>
-                <%= consultation.patient.last_name %>
-              </h2>
-            </div>
-            <% if consultation.validated %>
-              <i class="fa-solid fa-check text-success fs-2"></i>
+
+  <div class="consultations-list mt-4">
+  <div class="vertical-line"></div>
+    <% @consultations.each_with_index do |consultation, i| %>
+      <div class="row">
+        <div class="d-flex justify-content-center">
+          <div class="card">
+            <div class="card-body p-2">
+            <% unless @travel_infos[i].nil? %>
+              <strong class="me-2 ms-2"><%= @travel_infos[i][:duration] %></strong>
+              <span class="me-2">
+                <%= @travel_infos[i][:distance] %>
+              </span>
             <% end %>
-          </div>
-          <div class="d-flex flex-column">
-          <div class="d-flex gap-3 align-items-center mb-3 text-black-50">
-            <i class="fa-sharp fa-solid fa-location-dot"></i>
-            <p class="m-0">
-              <%= consultation.patient.address %>
-            </p>
-          </div>
-          <div class="d-flex gap-3 align-items-center text-primary">
-            <i class="fa-solid fa-cake-candles"></i>
-            <p class='m-0'>
-              <strong>
-                <%= consultation.patient.birth_date.strftime("%d/%m/%Y") %>
-              </strong>
-            </p>
             </div>
           </div>
         </div>
       </div>
+      <%= link_to consultation_path(consultation.id), class: "show-tours-card" do %>
+        <div class="card mb-4 mt-4">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="d-flex align-items-center">
+                <%= image_tag consultation.patient.picture_url, alt: "Photo de patient", class: "avatar tour-show-img me-4" %>
+                <h2>
+                  <%= consultation.patient.first_name %>
+                  <%= consultation.patient.last_name %>
+                </h2>
+              </div>
+              <% if consultation.validated %>
+                <i class="fa-solid fa-check text-success fs-2"></i>
+              <% end %>
+            </div>
+            <div class="d-flex flex-column">
+              <div class="d-flex gap-3 align-items-center mb-3 text-black-50">
+                <i class="fa-sharp fa-solid fa-location-dot"></i>
+                <p class="m-0">
+                  <%= consultation.patient.address %>
+                </p>
+              </div>
+            <div class="d-flex gap-3 align-items-center text-primary">
+              <i class="fa-solid fa-cake-candles"></i>
+              <p class='m-0'>
+                <strong>
+                  <%= consultation.patient.birth_date.strftime("%d/%m/%Y") %>
+                </strong>
+              </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <% if i == (@consultations.count - 1) %>
+        <div class="row mb-5">
+          <div class="d-flex justify-content-center">
+            <div class="card finish-card">
+              <div class="card-body p-2">
+                <strong class="me-2 ms-2 text-light">Terminé !</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>

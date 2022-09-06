@@ -3,7 +3,6 @@
   text-decoration: none;
 }
 
-
 .card {
   border: none;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
@@ -14,4 +13,23 @@
   width: 50px;
   object-fit: cover;
   object-fit: cover;
+}
+
+.consultations-list {
+  position: relative;
+}
+
+.vertical-line {
+  top: 1px;
+  position: absolute;
+  width: 1px;
+  border-left: 6px $secondary;
+  border-right: 0px;
+  border-style: solid;
+  height: calc(100% - 1px);
+  left: calc(50% - 1px);
+}
+
+.finish-card {
+  background-color: $primary;
 }
