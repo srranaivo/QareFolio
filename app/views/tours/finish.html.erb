@@ -1,0 +1,29 @@
+
+<div class="mb-3 p-2">
+  <div class="col mt-2">
+    <div class="d-flex flex-column align-items-center">
+      <h1 class="fw-bold fs-1">Récapitulatif de ma tournée:</h1>
+      <p class="fs-6 text-black-50"><%= Date.today.strftime("%d/%m/%Y") %></p>
+      <div>
+    <span>Bravo vos <%= current_user.todays_tour.consultations.count %> patients du jours ont bien été pris en charge !</span>
+    <span class="fs-2 mb-2">👏</span>
+    # vous avez parcouru x kilomètres
+    # vous avez effectué X soins
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <div class="d-flex flex-column align-items-center">
+    <a data-turbo-method="get" class="btn btn-outline-primary mt-3"
+    href=  "<%= tour_path(@tour.next)%>" >Voir la tournée suivante </a>
+  </div>
+
+
+  <div class="d-flex flex-column align-items-center">
+    <a data-turbo-method="delete" class="btn btn-primary mt-3" href="/users/sign_out">Se déconnecter</a>
+  </div>
+</div>

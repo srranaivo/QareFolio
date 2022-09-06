@@ -34,7 +34,8 @@
             <span>Bravo vous avez terminé votre tournée !</span>
             <span class="fs-2 mb-2">👏</span>
           </div>
-            <button class="btn btn-primary mt-3">Voir mon récapitulatif</button>
+            <span>Aujourd'hui vous avez soigné <strong><%= @tour.consultations.count %></strong> patients</span>
+            <%=link_to "Voir mon récapitulatif", tour_finish_path(@tour), class:"btn btn-primary mt-3" %>
           <% else %>
           <div>
             <span>Il vous reste <strong><%= @tour.pending_consultations %></strong> patients à soigner</span>

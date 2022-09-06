@@ -42,6 +42,13 @@ class ToursController < ApplicationController
     end
   end
 
+  def finish
+    @tour = Tour.find(params[:tour_id])
+    @nb_consultation = @tour.consultations.count
+  end
+
+
+
   private
 
   def create_url(consul)
