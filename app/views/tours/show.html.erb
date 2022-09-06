@@ -47,6 +47,14 @@
     </div>
 
   <div class="row mb-3">
+    <div class="d-grid">
+      <%= link_to "", class:'btn btn-primary btn-lg px-4', method: :get do %>
+        Optimiser ma tournée
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row mb-3">
     <div class="col d-grid align-items-center">
       <%= link_to tour_map_path(@tour), class:'btn btn-secondary btn-lg px-4', method: :get do %>
         <i class="fa-regular fa-map"></i>

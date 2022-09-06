@@ -10,7 +10,6 @@ export default class extends Controller {
   connect() {
     console.log("Connecting to data-controller");
     this.#initMap();
-
   }
 
   #initMap() {
@@ -24,8 +23,10 @@ export default class extends Controller {
     }
 
     var map = new google.maps.Map(this.googleTarget, mapOptions);
+    // console.log('setmap')
     directionsRenderer.setMap(map);
     setTimeout(() => {
+      // console.log('call api rails')
       this.#getJson()
     }, 1000);
   }
@@ -63,6 +64,7 @@ export default class extends Controller {
               return leg;
             });
             // console.log(response)
+            // console.log('setDirections')
             directionsRenderer.setDirections(response);
           }
         }
