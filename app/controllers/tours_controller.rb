@@ -13,7 +13,8 @@ class ToursController < ApplicationController
   def show
     p '12: TOUR CONTROLLER SHOW START'
     @tour = Tour.find(params[:id])
-    if @tour.map_data == "{}"
+    p @tour.map_data
+    if @tour.map_data == {}
       p '15: TOUR CONTROLLER CALL GOOGLE API'
       data = optimize_tour(@tour.id)
       p '17 TOUR CONTROLLER RECIVE DATA FROM METHOD OPTIMIZE TOUR'
@@ -144,8 +145,8 @@ class ToursController < ApplicationController
 
     # creation of the request url
     base_url = "https://maps.googleapis.com/maps/api/directions/json?"
-    origin = url_encode("Renens, route de lausanne 64")
-    destination = url_encode("Renens, route de lausanne 64")
+    origin = url_encode(current_user.address)
+    destination = url_encode(current_user.arrival_address)
     waypoints = url_encode(patients_address)
     url_encoded = "#{base_url}origin=#{origin}&destination=#{destination}&waypoints=optimize%3Atrue%7C#{waypoints}&mode=driving&key=#{ENV['GOOGLE_MAP']}"
     return {url: url_encoded, initial_order: consultation_initial_order}

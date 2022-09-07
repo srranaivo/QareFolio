@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="show-consultations-profile d-flex flex-row mt-4 align-items-center">
+  <div class="show-profile d-flex flex-row mt-4 align-items-center">
     <%= image_tag @consultation.patient.picture_url, alt: "Photo de patient", class: "ms-2 me-4" %>
     <div class="d-flex flex-column">
       <h1>
@@ -75,39 +75,70 @@
     <% end %>
   </div>
 
+
   <div class="container">
+    <h5 class="mt-4 mb-4 fw-bold">Remarques</h5>
+    <% @remarks.each do |remark| %>
+      <div class='card mb-2 mt-2'>
+        <div class='card-body p-3'>
+          <div class="d-flex align-items-center justify-content-between flex-column">
+            <div class="d-flex align-items-center w-100">
+              <% if remark.tag == 'important' %>
+                <i class="fa-solid fa-circle-exclamation text-danger"></i>
+              <% elsif remark.tag == 'observation' %>
+                <i class="fa-solid fa-eye text-primary"></i>
+              <% elsif remark.tag == 'question' %>
+                <i class="fa-solid fa-circle-question text-warning"></i>
+              <% end %>
+              <h4 class="m-0 text-primary fw-light text-primary ms-3">
+                <%= remark.title %>
+              </h4>
+            </div>
+              <div class="d-flex flex-column mt-3 w-100">
+                <div class="d-flex gap-3 align-items-center text-black-50">
+                  <p class="m-0">
+                    <%= remark.description %>
+                  </p>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-outline-primary w-100 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Ajouter une nouvelle remarque
+    </button>
   </div>
 
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Nouvelle remarque</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <%= simple_form_for [@consultation, @remark] do |f| %>
+          <%= f.input :title, label: 'Titre' %>
+          <%= f.input :description, label: 'Description' %>
+          <%= f.input :tag, as: :select,  collection: Remark.tags.keys %>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <%= f.button :submit, class: 'btn btn-primary' %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
 
-  <div class="d-flex justify-content-center mt-4 mb-4 button-consultation">
-
+  <div class="d-flex justify-content-center mt-4 mb-4 button-consultation mt-5">
     <%= button_to "Valider les soins",
     consultation_path(@consultation),
-    class: "btn btn-primary",
+    class: "btn btn-primary btn-lg",
     params: {consultation: {validated: true}},
     method: :put %>
   </div>

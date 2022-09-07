@@ -19,7 +19,8 @@ export default class extends Controller {
     var center = new google.maps.LatLng(46.5196535, 6.6322734);
     var mapOptions = {
       zoom: 8,
-      center: center
+      center: center,
+      suppressMarkers: true,
     }
 
     var map = new google.maps.Map(this.googleTarget, mapOptions);

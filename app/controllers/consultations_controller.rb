@@ -6,6 +6,8 @@ class ConsultationsController < ApplicationController
     @consultation = Consultation.find(params[:id])
 
     @validated_cares = ValidatedCare.includes(:care).where(consultation: @consultation).order(:id)
+    @remarks = @consultation.remarks
+    @remark = Remark.new
 
     address = @consultation.patient.address
     address_encoded = url_encode(address)
