@@ -1,6 +1,6 @@
 .show-consultations-profile img {
-  width: 72px;
-  height: 72px;
+  width: 82px;
+  height: 82px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -9,4 +9,21 @@
   width: 100%;
   text-align: left;
   cursor: pointer;
+}
+
+.validated-checklist{
+  background-color: #BBE1FA;
+  border: none;
+}
+
+.not-validated-checklist {
+  border: none;
+}
+
+.button-consultation form {
+  width: 100%;
+}
+
+.button-consultation button {
+  width: 100%;
 }
