@@ -4,8 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :tours
-
   after_save :reset_map_data
+
+  validates :address, presence: true
+  validates :arrival_address, presence: true
 
   def todays_tour
     tours.find_by(date: Date.today)

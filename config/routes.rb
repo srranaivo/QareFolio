@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   resources :consultations, only: [:show, :update] do
     resources :validated_cares, only: [:create]
-    resources :remaks, only: [:create, :update, :edit]
+    resources :remarks, only: [:create, :update, :edit]
   end
   resources :validated_cares, only: [:update]
 

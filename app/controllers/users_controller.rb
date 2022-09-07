@@ -6,12 +6,13 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if params[:user][:arrival_address] == ''
-      p 'change params'
       params[:user][:arrival_address] = params[:user][:address]
-      p params[:user][:arrival_address]
     end
-    @user.update(user_params)
-    redirect_to user_path(@user)
+    if @user.update(user_params)
+      redirect_to user_path(@user)
+    else
+      render :show, status: :unprocessable_entity
+    end
   end
 
   private
