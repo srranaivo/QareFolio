@@ -29,7 +29,8 @@ nurse = User.new(
   email: "sophie@gmail.com",
   password: "123456",
   profile_pic: "https://avatars.githubusercontent.com/u/102239823?v=4",
-  address: 'Rte des Aunaires 3, Monthey')
+  address: 'Rte des Aunaires 3, Monthey',
+  arrival_address: 'Rte des Aunaires 3, Monthey')
 nurse.save!
 
 #generate a tour
