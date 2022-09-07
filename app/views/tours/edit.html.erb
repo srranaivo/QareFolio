@@ -8,14 +8,6 @@
 <% end %>
 
 
-
-
-
-
-
-
-
-
 <div class="container">
 
   <% @tour.consultations.each do |consultation| %>
@@ -28,12 +20,15 @@
               <%= consultation.patient.first_name %>
               <%= consultation.patient.last_name %>
             </h2>
+            <% end %>
           </div>
-
-            <i class="fa-solid fa-check fs-2 text-primary"></i>
-
         </div>
       </div>
+
+          <div>
+            <% link_to consultation_path(@consultation_id).delete, class:'btn btn-secondary btn-lg px-4', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, method: :destroy do %>
+            <i class="fa-solid fa-xmark fs-2 text-primary"></i>
+            <h6>Supprimer ce patient</h6>
+            <% end %>
+          </div>
     </div>
-  <% end %>
-</div>

@@ -23,6 +23,13 @@ class ConsultationsController < ApplicationController
     end
   end
 
+  def destroy_consultation_id
+    @consultation = Consultation.find(params[:id])
+    @consultation.destroy
+
+    redirect_to consultations_path, status: :see_other
+  end
+
   private
 
   def consultation_params
