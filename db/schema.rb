@@ -80,7 +80,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_134530) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.jsonb "map_data", default: "{}"
+    t.jsonb "map_data", default: {}
     t.index ["user_id"], name: "index_tours_on_user_id"
   end
 

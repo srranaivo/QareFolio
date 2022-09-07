@@ -11,6 +11,7 @@ class ToursController < ApplicationController
   def show
     p '12: TOUR CONTROLLER SHOW START'
     @tour = Tour.find(params[:id])
+    p @tour.map_data
     if @tour.map_data == {}
       p '15: TOUR CONTROLLER CALL GOOGLE API'
       data = optimize_tour(@tour.id)
