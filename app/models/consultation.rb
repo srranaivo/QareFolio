@@ -3,6 +3,7 @@ class Consultation < ApplicationRecord
   belongs_to :patient
   has_many :validated_cares
   has_many :cares, through: :validated_cares
+  has_many :remarks
   after_create :create_validated_cares
 
   def validated_care_id(care)
