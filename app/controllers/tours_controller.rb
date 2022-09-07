@@ -115,20 +115,22 @@ class ToursController < ApplicationController
     @nb_consultation = @tour.consultations.count
   end
 
-  def edit
-    @tour = Tour.find(params[:tour_id])
-  end
 
-  def update
+  def edit
+    p params
     @tour = Tour.find(params[:id])
-    @tour.update(params[:tour])
   end
 
   # def update
   #   @tour = Tour.find(params[:id])
-  #   @tour = Tour.update(tour_params)
-  #   redirect_to tour_path(@tour)
+  #   @tour.update(params[:tour])
   # end
+
+  def update
+    @tour = Tour.find(params[:id])
+    @tour = Tour.update(tour_params)
+    redirect_to tour_path(@tour)
+  end
 
 
   private
@@ -152,9 +154,9 @@ class ToursController < ApplicationController
     return {url: url_encoded, initial_order: consultation_initial_order}
   end
 
-  # def tour_params
-    # params.require(:tour).permit(:first_name, :last_name, :birth_date)
-  # end
+  def tour_params
+    params.require(:tour).permit(:id)
+  end
 
 
 end

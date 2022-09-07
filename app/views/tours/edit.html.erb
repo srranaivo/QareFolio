@@ -20,15 +20,12 @@
               <%= consultation.patient.first_name %>
               <%= consultation.patient.last_name %>
             </h2>
+            <%= link_to consultation_path(consultation), class:'btn btn-secondary btn-lg px-4', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, method: :destroy do %>
+              <i class="fa-solid fa-xmark fs-2 text-primary"></i>
             <% end %>
           </div>
         </div>
       </div>
-
-          <div>
-            <% link_to consultation_path(@consultation_id).delete, class:'btn btn-secondary btn-lg px-4', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, method: :destroy do %>
-            <i class="fa-solid fa-xmark fs-2 text-primary"></i>
-            <h6>Supprimer ce patient</h6>
-            <% end %>
-          </div>
     </div>
+  <% end %>
+</div>

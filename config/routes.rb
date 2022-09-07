@@ -7,10 +7,11 @@ Rails.application.routes.draw do
     get "map", to: "tours#map"
     get "finish", to: "tours#finish"
   end
-  resources :consultations, only: [:show, :update] do
+  resources :consultations, only: [:show, :update, :destroy] do
     resources :validated_cares, only: [:create]
     resources :remarks, only: [:create, :update, :edit]
   end
+
   resources :validated_cares, only: [:update]
 
   resources :users, only: [:show, :update]

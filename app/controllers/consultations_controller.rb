@@ -25,11 +25,12 @@ class ConsultationsController < ApplicationController
     end
   end
 
-  def destroy_consultation_id
+  def destroy
     @consultation = Consultation.find(params[:id])
     @consultation.destroy
-
-    redirect_to consultations_path, status: :see_other
+    @consultation.tour
+    redirect_to edit_tour_path(@consultation.tour), notice: "consultattion supprimée avec succès"
+    # redirect_to tour_path(:id), status: :see_other
   end
 
   private
