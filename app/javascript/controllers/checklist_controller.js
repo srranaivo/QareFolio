@@ -6,11 +6,12 @@ export default class extends Controller {
   static values = {consultation: Number}
 
   connect() {
-    console.log("checkbox"), this.checkboxTarget
+    console.log("checkbox")
   }
 
   checklist(e) {
-    console.log(this.element)
+    this.element.classList.toggle("validated-checklist")
+    console.log(this.checkboxTarget)
     this.element.submit();
   }
 }
