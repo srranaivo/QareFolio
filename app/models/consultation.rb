@@ -6,6 +6,8 @@ class Consultation < ApplicationRecord
   has_many :remarks
   after_create :create_validated_cares
 
+  before_destroy :destroy_dependencies
+
   def validated_care_id(care)
     if validated_cares.find_by(care: care)
       validated_cares.find_by(care: care).id
@@ -18,5 +20,10 @@ class Consultation < ApplicationRecord
     patient.cares.each do |care|
       ValidatedCare.create!(care: care, consultation: self)
     end
+  end
+
+  def destroy_dependencies
+    validated_cares.destroy_all
+    remarks.destroy_all
   end
 end
