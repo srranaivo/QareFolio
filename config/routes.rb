@@ -12,4 +12,6 @@ Rails.application.routes.draw do
     resources :remaks, only: [:create, :update, :edit]
   end
   resources :validated_cares, only: [:update]
+
+  resources :users, only: [:show, :update]
 end
