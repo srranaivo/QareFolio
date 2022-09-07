@@ -8,6 +8,8 @@ class ToursController < ApplicationController
     @tours = Tour.all
   end
 
+
+
   def show
     p '12: TOUR CONTROLLER SHOW START'
     @tour = Tour.find(params[:id])
@@ -106,11 +108,26 @@ class ToursController < ApplicationController
     # end
   end
 
+
   def finish
     @tour = Tour.find(params[:tour_id])
     @nb_consultation = @tour.consultations.count
   end
 
+  def edit
+    @tour = Tour.find(params[:tour_id])
+  end
+
+  def update
+    @tour = Tour.find(params[:id])
+    @tour.update(params[:tour])
+  end
+
+  # def update
+  #   @tour = Tour.find(params[:id])
+  #   @tour = Tour.update(tour_params)
+  #   redirect_to tour_path(@tour)
+  # end
 
 
   private
@@ -133,4 +150,10 @@ class ToursController < ApplicationController
     url_encoded = "#{base_url}origin=#{origin}&destination=#{destination}&waypoints=optimize%3Atrue%7C#{waypoints}&mode=driving&key=#{ENV['GOOGLE_MAP']}"
     return {url: url_encoded, initial_order: consultation_initial_order}
   end
+
+  # def tour_params
+    # params.require(:tour).permit(:first_name, :last_name, :birth_date)
+  # end
+
+
 end
