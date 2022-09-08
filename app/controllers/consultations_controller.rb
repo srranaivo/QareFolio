@@ -19,7 +19,11 @@ class ConsultationsController < ApplicationController
   def update
     @consultation = Consultation.find(params[:id])
     if @consultation.update(consultation_params)
-      redirect_to tour_path(@consultation.tour)
+      if @consultation.tour.is_finished?
+        redirect_to tour_finish_path(@consultation.tour)
+      else
+        redirect_to tour_path(@consultation.tour)
+      end
     else
       redirect_to consultation_path(@consultation), notice: "Error"
     end

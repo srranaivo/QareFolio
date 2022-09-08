@@ -1,18 +1,20 @@
 <div class="container mt-4">
-  <h1 class="fw-bold fs-1">Editer la tournée du <%= @tour.date.strftime("%d/%m/%Y") %></h1>
+  <h4 class="fw-bold">Tournée du <%= @tour.date.strftime("%d/%m/%Y") %></h4>
+  <p>Ajouter ou supprimer des consultations</p>
 
-  <div class="mt-2 mb-4" data-controller="search" data-search-position-value="afterend">
+
+  <div class="mt-4 mb-4" data-controller="search" data-search-position-value="afterend">
     <%= form_with url: tour_search_patients_path(@tour),
     data: { search_target: "form", action: "keyup->search#send"},
     method: :get,
-    class: "d-flex" do %>
+    class: "d-flex custom-shadow" do %>
       <%= text_field_tag :query,
         params[:query],
         data: { search_target: "input"},
-        class: "form-control",
+        class: "form-control bg-white",
         placeholder: "Rechercher un patient..."
       %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <%# <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
 
     <div data-search-target="items">
@@ -30,16 +32,16 @@
               <%= consultation.patient.last_name %>
             </h2>
           </div>
-          <%= link_to consultation_path(consultation), class:'btn btn-outline-danger px-4', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, method: :destroy do %>
-            <i class="fa-solid fa-xmark fs-2 text-danger"></i>
+          <%= link_to consultation_path(consultation), class:'btn btn-outline-danger px-4 btn-delete', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, method: :destroy do %>
+            <i class="fa-solid fa-xmark fs-2 text-danger close"></i>
           <% end %>
         </div>
       </div>
     </div>
   <% end %>
 
-    <div class="d-grid mt-4">
-      <%= link_to "retourner sur la tournée", tour_path(@tour), class: 'btn btn-outline-primary' %>
+    <div class="d-grid mt-4 mb-5">
+      <%= link_to "revenir à la tournée", tour_path(@tour), class: 'btn btn-primary' %>
     </div>
 
 </div>
