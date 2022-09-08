@@ -3,9 +3,9 @@
   <div class="col mt-2">
     <div class="d-flex flex-column align-items-center">
       <h1 class="fw-bold fs-1">Récapitulatif de ma tournée:</h1>
-      <p class="fs-6 text-black-50"><%= Date.today.strftime("%d/%m/%Y") %></p>
+      <p class="fs-6 text-black-50"><%= @tour.date.strftime("%d/%m/%Y") %></p>
       <div>
-    <span>Bravo vos <%= current_user.todays_tour.consultations.count %> patients du jours ont bien été pris en charge !</span>
+    <span>Bravo vos <%=@nb_consultation %> patients du jours ont bien été pris en charge !</span>
     <span class="fs-2 mb-2">👏</span>
     # vous avez parcouru x kilomètres
     # vous avez effectué X soins
