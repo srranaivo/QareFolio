@@ -9,7 +9,6 @@ class ToursController < ApplicationController
   end
 
 
-
   def show
     p '12: TOUR CONTROLLER SHOW START'
     @tour = Tour.find(params[:id])
@@ -109,6 +108,19 @@ class ToursController < ApplicationController
     # end
   end
 
+  def search_patients
+    if params[:query].present?
+      @patients = Patient.where(first_name: params[:query])
+    end
+
+    respond_to do |format|
+      format.json {
+        render json: @patients
+      }
+    end
+
+  end
+
 
   def finish
     @tour = Tour.find(params[:tour_id])
@@ -117,8 +129,15 @@ class ToursController < ApplicationController
 
 
   def edit
-    p params
     @tour = Tour.find(params[:id])
+    @patient = Patient
+    @patients = Patient.all
+  end
+
+  def add_consultation
+    # @patient = Land.find(params[:Land]['land_id'])
+    # @land.update(user: current_user)
+    # redirect_to land_path(@land)
   end
 
   # def update

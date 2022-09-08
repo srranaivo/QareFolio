@@ -1,14 +1,23 @@
-<h1>Veuillez choisir un patient à ajouter à votre tournée</h1>
-<%= form_with model: @tour do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <%= f.submit %>
-<% end %>
+<div class="container mt-4">
+  <h1 class="fw-bold fs-1">Editer la tournée du <%= @tour.date.strftime("%d/%m/%Y") %></h1>
 
+  <div class="mt-2 mb-4" data-controller="search" data-search-position-value="afterend">
+    <%= form_with url: tour_search_patients_path(@tour),
+    data: { search_target: "form", action: "keyup->search#send"},
+    method: :get,
+    class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        data: { search_target: "input"},
+        class: "form-control",
+        placeholder: "Rechercher un patient..."
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
 
-<div class="container">
+    <div data-search-target="items">
+    </div>
+  </div>
 
   <% @tour.consultations.each do |consultation| %>
     <div class="card mb-2 mt-2">
@@ -20,12 +29,17 @@
               <%= consultation.patient.first_name %>
               <%= consultation.patient.last_name %>
             </h2>
-            <%= link_to consultation_path(consultation), class:'btn btn-secondary btn-lg px-4', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, method: :destroy do %>
-              <i class="fa-solid fa-xmark fs-2 text-primary"></i>
-            <% end %>
           </div>
+          <%= link_to consultation_path(consultation), class:'btn btn-outline-danger px-4', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, method: :destroy do %>
+            <i class="fa-solid fa-xmark fs-2 text-danger"></i>
+          <% end %>
         </div>
       </div>
     </div>
   <% end %>
+
+    <div class="d-grid mt-4">
+      <%= link_to "retourner sur la tournée", tour_path(@tour), class: 'btn btn-outline-primary' %>
+    </div>
+
 </div>
