@@ -462,7 +462,7 @@ Anamnesis.create!(
 Anamnesis.create!(
 patient: patient_1,
 date: "2019-01-20",
-description: "PTH"
+description: "PTH droite"
 )
 
 Anamnesis.create!(
@@ -488,6 +488,18 @@ patient: patient_3,
 date: "2020-03-10",
 description: "Troubles dépressifs"
 )
+
+Anamnesis.create!(
+patient: patient_3,
+date: "2018-06-21",
+description: "DMLA"
+)
+
+Anamnesis.create!(
+patient: patient_3,
+date: "2015-04-18",
+description: "PTG gauche "
+  )
 
 Anamnesis.create!(
 patient: patient_4,
@@ -520,9 +532,27 @@ description: "Trouble de la personnalité"
 )
 
 Anamnesis.create!(
+patient: patient_5,
+date: "2000-09-24",
+description: "Cervicalgie"
+)
+
+Anamnesis.create!(
 patient: patient_6,
 date: "2011-03-10",
 description: "Schizophrénie"
+)
+
+Anamnesis.create!(
+patient: patient_6,
+date: "2000-11-30",
+description: "Addiction au cannabis"
+)
+
+Anamnesis.create!(
+patient: patient_6,
+date: "2003-11-30",
+description: "Dyslipidémie"
 )
 
 Anamnesis.create!(
@@ -533,8 +563,26 @@ description: "Diabète"
 
 Anamnesis.create!(
 patient: patient_7,
+date: "2013-03-10",
+description: "Insuffisance rénale terminale"
+)
+
+Anamnesis.create!(
+patient: patient_7,
 date: "2021-03-10",
-description: "Insuffisance rénale terminale, dialyse sur FAV"
+description: "Dialyse sur FAV"
+)
+
+Anamnesis.create!(
+patient: patient_8,
+date: "1999-01-06",
+description: "Allergie à l'iode"
+)
+
+Anamnesis.create!(
+patient: patient_8,
+date: "2016-06-14",
+description: "Kystes ovariens"
 )
 
 Anamnesis.create!(
@@ -545,9 +593,16 @@ description: "Thrombose veineuse profonde post-partum"
 
 Anamnesis.create!(
 patient: patient_9,
+date: "1998-02-17",
+description: "Diverticules"
+)
+
+Anamnesis.create!(
+patient: patient_9,
 date: "2019-03-10",
 description: "Cancer digestif"
 )
+
 Anamnesis.create!(
 patient: patient_9,
 date: "2020-03-10",
@@ -567,14 +622,33 @@ description: "Troubles cognitifs"
 )
 
 Anamnesis.create!(
+patient: patient_10,
+date: "2020-03-10",
+description: "Dysphagie"
+)
+
+Anamnesis.create!(
 patient: patient_11,
 date: "2016-03-10",
 description: "Parkinson"
 )
+
 Anamnesis.create!(
 patient: patient_11,
 date: "2019-03-10",
 description: "Trouble dépressif"
+)
+
+Anamnesis.create!(
+patient: patient_11,
+date: "2022-03-10",
+description: "Xérostomie"
+)
+
+Anamnesis.create!(
+patient: patient_12,
+date: "20-03-10",
+description: "Cholécystectomie"
 )
 
 Anamnesis.create!(
@@ -589,6 +663,11 @@ date: "2020-03-10",
 description: "Carcinomes cutanés"
 )
 
+Anamnesis.create!(
+patient: patient_13,
+date: "2000-03-10",
+description: "Tabac actif, 20 UPA"
+)
 Anamnesis.create!(
 patient: patient_13,
 date: "2016-03-10",
@@ -621,8 +700,33 @@ description: "Trouble de la marche et de l'équilibre"
 
 Anamnesis.create!(
 patient: patient_15,
+date: "2003-03-10",
+description: "Tabac actif, 18 UPA"
+)
+
+Anamnesis.create!(
+patient: patient_15,
+date: "2015-03-10",
+description: "Hypertension Artérielle"
+)
+
+
+Anamnesis.create!(
+patient: patient_15,
 date: "2021-03-10",
 description: "Cancer de la vessie"
+)
+
+Anamnesis.create!(
+patient: patient_16,
+date: "1999-03-10",
+description: "Cancer de la Thyroïde"
+)
+
+Anamnesis.create!(
+patient: patient_16,
+date: "2002-03-10",
+description: "Hyperplasie de la prostate"
 )
 
 Anamnesis.create!(
@@ -636,6 +740,13 @@ patient: patient_17,
 date: "1996-03-10",
 description: "Retard mental"
 )
+
+Anamnesis.create!(
+patient: patient_17,
+date: "1996-03-10",
+description: "Hypersialorrhée"
+)
+
 Anamnesis.create!(
 patient: patient_17,
 date: "1996-03-10",
