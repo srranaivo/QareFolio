@@ -3,7 +3,7 @@
   <div class="row mb-1">
     <div class="col d-flex align-items-center justify-content-start">
       <% unless @tour.previous.nil? %>
-        <%= link_to tour_path(@tour.previous), class: "btn btn-outline-primary w-75" do %>
+        <%= link_to tour_path(@tour.previous), class: "btn btn-outline-primary w-100" do %>
         <i class="fa-solid fa-arrow-left me-1"></i>
           Précédent
         <% end %>
@@ -12,7 +12,7 @@
 
     <div class="col d-flex align-items-center justify-content-end">
       <% unless @tour.next.nil? %>
-        <%= link_to tour_path(@tour.next), class: "btn btn-outline-primary w-75" do %>
+        <%= link_to tour_path(@tour.next), class: "btn btn-outline-primary w-100" do %>
         <span>Suivant </span>
           <i class="fa-solid fa-arrow-right ms-1"></i>
         <% end %>
@@ -43,14 +43,6 @@
     </div>
 
   <div class="row mb-3">
-    <div class="d-grid">
-      <%= link_to "", class:'btn btn-primary btn-lg px-4', method: :get do %>
-        Continuer ma tournée
-      <% end %>
-    </div>
-  </div>
-
-  <div class="row mb-3">
     <div class="col d-grid align-items-center">
       <%= link_to tour_map_path(@tour), class:'btn btn-secondary btn-lg px-4', method: :get do %>
         <i class="fa-regular fa-map"></i>
@@ -62,7 +54,7 @@
       <%= link_to edit_tour_path(@tour), class:'btn btn-secondary btn-lg px-4' do %>
 
         <i class="fa-regular fa-pen-to-square"></i>
-        <h6>Modifier ma tournée</h6>
+        <h6>Modifier</h6>
       <% end %>
     </div>
   </div>

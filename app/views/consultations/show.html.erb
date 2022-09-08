@@ -63,15 +63,8 @@
     <% @validated_cares.each_with_index do |validated_care, i| %>
       <%= simple_form_for validated_care, method: :put,
       html: {"data-controller":"checklist"},
-      class: validated_care.done ? "input-group-text flex-fill mb-3 p-3 validated-checklist" : "input-group-text flex-fill mb-3 p-3 not-validated-checklist" do |form| %>
-        <%= form.check_box "checkbox#{i}",
-        checked: validated_care.done,
-        "data-checklist-target": "checkbox",
-        # "data-action": "click->checklist#checklist",
-        class: "form-check-input mt-0"
-        %>
-        <%= form.label "checkbox#{i}", validated_care.care.name, class: "ms-4 label-checkbox" %>
-        <%= form.submit %>
+      class: validated_care.done ? "" : "" do |form| %>
+        <%= form.submit validated_care.care.name, "data-checklist-target": "submit", "data-action": "click->checklist#checklist", class: validated_care.done ? "input-group-text flex-fill mb-3 p-3 w-100 validated-checklist" : "input-group-text flex-fill mb-3 p-3 w-100" %>
       <% end %>
     <% end %>
   </div>
