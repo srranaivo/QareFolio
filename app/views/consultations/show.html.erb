@@ -61,7 +61,7 @@
   <div class="cheklist d-flex container flex-column">
     <h5 class="mt-4 mb-4 fw-bold">Soins à effectuer</h5>
     <% @validated_cares.each_with_index do |validated_care, i| %>
-      <%= form_with model: validated_care, method: :put,
+      <%= simple_form_for validated_care, method: :put,
       html: {"data-controller":"checklist"},
       class: validated_care.done ? "input-group-text flex-fill mb-3 p-3 validated-checklist" : "input-group-text flex-fill mb-3 p-3 not-validated-checklist" do |form| %>
         <%= form.check_box "checkbox#{i}",
