@@ -110,7 +110,9 @@ class ToursController < ApplicationController
 
   def search_patients
     if params[:query].present?
-      @patients = Patient.where(first_name: params[:query])
+      sql_query = "first_name ILIKE :query OR last_name ILIKE :query"
+      @patients = Patient.where(sql_query, query: "%#{params[:query]}%")
+      # @patients = Patient.where("first_name ILIKE ?", "%#{params[:query]}%")
     end
 
     respond_to do |format|
