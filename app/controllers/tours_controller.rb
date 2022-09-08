@@ -109,6 +109,18 @@ class ToursController < ApplicationController
     # end
   end
 
+  def search_patients
+    p''
+    p params
+    p ''
+    if params[:query].present?
+      @patients = Patient.where(first_name: params[:query])
+      redirect_to edit_tour_path(params[:tour_id], results: @patients )
+    else
+      @patients = Movie.all
+    end
+  end
+
 
   def finish
     @tour = Tour.find(params[:tour_id])
