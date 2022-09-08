@@ -64,7 +64,18 @@
       <%= simple_form_for validated_care, method: :put,
       html: {"data-controller":"checklist"},
       class: validated_care.done ? "" : "" do |form| %>
-        <%= form.submit validated_care.care.name, "data-checklist-target": "submit", "data-action": "click->checklist#checklist", class: validated_care.done ? "input-group-text flex-fill mb-3 p-3 w-100 validated-checklist" : "input-group-text flex-fill mb-3 p-3 w-100" %>
+        <%= button_tag(type: 'submit', class: validated_care.done ? "input-group-text flex-fill mb-3 p-3 w-100 no-border validated-checklist" : "input-group-text flex-fill mb-3 p-3 w-100 no-border") do %>
+          <% if validated_care.done %>
+          <i class="fa-regular fa-square-check me-4"></i>
+          <% else %>
+          <i class="fa-regular fa-square me-4"></i>
+          <% end %>
+          <%= validated_care.care.name %>
+        <% end %>
+        <%# <%= form.submit validated_care.care.name, %>
+        <%# "data-checklist-target": "submit", %>
+        <%# "data-action": "click->checklist#checklist", %>
+        <%# class: validated_care.done ? "input-group-text flex-fill mb-3 p-3 w-100 validated-checklist" : "input-group-text flex-fill mb-3 p-3 w-100" %>
       <% end %>
     <% end %>
   </div>
