@@ -30,8 +30,8 @@
               <%= consultation.patient.last_name %>
             </h2>
           </div>
-          <%= link_to consultation_path(consultation), class:'btn btn-outline-danger px-4', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, method: :destroy do %>
-            <i class="fa-solid fa-xmark fs-2 text-danger"></i>
+          <%= link_to consultation_path(consultation), class:'btn btn-outline-danger px-4 btn-delete', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, method: :destroy do %>
+            <i class="fa-solid fa-xmark fs-2 text-danger close"></i>
           <% end %>
         </div>
       </div>
