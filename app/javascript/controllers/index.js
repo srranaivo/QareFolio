@@ -15,3 +15,6 @@ application.register("map", MapController)
 
 import NurseAddressController from "./nurse_address_controller"
 application.register("nurse-address", NurseAddressController)
+
+import SearchController from "./search_controller"
+application.register("search", SearchController)

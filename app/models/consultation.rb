@@ -14,7 +14,16 @@ class Consultation < ApplicationRecord
     end
   end
 
+  def create
+    @consultation = Consultation.new(consultation_params)
+    @consultation.save
+  end
+
   private
+
+  def consultation_params
+    params.require(:consultation).permit(:tour, :care)
+  end
 
   def create_validated_cares
     patient.cares.each do |care|

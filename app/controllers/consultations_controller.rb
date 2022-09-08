@@ -29,13 +29,21 @@ class ConsultationsController < ApplicationController
     @consultation = Consultation.find(params[:id])
     @consultation.destroy
     @consultation.tour
-    redirect_to edit_tour_path(@consultation.tour), notice: "consultattion supprimée avec succès"
+    redirect_to edit_tour_path(@consultation.tour), notice: "consultation supprimée avec succès"
     # redirect_to tour_path(:id), status: :see_other
+  end
+
+  def create
+    p 'create a consultation'
+    p params
+    consultation = Consultation.new(tour_id: params[:tour_id], patient_id: params[:id])
+    consultation.save
+    render json: {url: edit_tour_path(params[:tour_id])}
   end
 
   private
 
   def consultation_params
-    params.require(:consultation).permit(:validated)
+    params.require(:consultation).permit(:validated, :id)
   end
 end
