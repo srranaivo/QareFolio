@@ -10,6 +10,7 @@ export default class extends Controller {
   }
 
   checklist(e) {
+    e.preventDefault();
     this.element.classList.toggle("validated-checklist")
     console.log(this.checkboxTarget)
     this.element.submit();
