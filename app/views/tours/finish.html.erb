@@ -18,9 +18,17 @@
 
 
   <div class="d-flex flex-column align-items-center">
-    <a data-turbo-method="get" class="btn btn-outline-primary mt-3"
-    href= "<%= tour_path(@tour.next)%>" >Voir la tournée suivante </a>
+      <% unless @tour.next.nil? %>
+        <%= link_to tour_path(@tour.next), class: "btn btn-outline-primary mt-3" do %>
+        <span> Voir la tournée suivante </span>
+        <% end %>
+      <% end %>
   </div>
+
+
+
+
+
 
 
   <div class="d-flex flex-column align-items-center">
