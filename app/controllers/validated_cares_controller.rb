@@ -13,6 +13,7 @@ class ValidatedCaresController < ApplicationController
       else
         @validated_care.update(done: true)
       end
+      redirect_to consultation_path(@validated_care.consultation)
     end
   end
 end
