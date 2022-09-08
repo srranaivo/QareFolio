@@ -29,8 +29,8 @@ nurse = User.new(
   email: "sophie@gmail.com",
   password: "123456",
   profile_pic: "https://avatars.githubusercontent.com/u/102239823?v=4",
-  address: 'Rte des Aunaires 3, Monthey',
-  arrival_address: 'Rte des Aunaires 3, Monthey')
+  address: 'Chem. de Burignon 2, 1071 Saint-Saphorin',
+  arrival_address: 'Chem. de Burignon 2, 1071 Saint-Saphorin')
 nurse.save!
 
 #generate a tour
@@ -442,8 +442,8 @@ table = CSV.parse(filepath)
 # anamnesis.save!
 
 Anamnesis.create!(
-  patient: patient_1,
-  date: "1967-03-10",
+patient: patient_1,
+date: "1967-03-10",
 description: "Diabète"
 )
 
@@ -452,6 +452,19 @@ patient: patient_1,
 date: "2001-03-10",
 description: "Calculs rénaux"
 )
+
+Anamnesis.create!(
+  patient: patient_1,
+  date: "1993-08-04",
+  description: "Hypertriglycéridémie"
+  )
+
+Anamnesis.create!(
+patient: patient_1,
+date: "2019-01-20",
+description: "PTH"
+)
+
 Anamnesis.create!(
 patient: patient_2,
 date: "2015-03-10",
@@ -461,7 +474,13 @@ description: "Troubles bipolaires"
 Anamnesis.create!(
 patient: patient_2,
 date: "2018-03-10",
-description: "Hypotension et Bradycardie"
+description: "Hypotension"
+)
+
+Anamnesis.create!(
+patient: patient_2,
+date: "2017-10-15",
+description: "Bradycardie"
 )
 
 Anamnesis.create!(
