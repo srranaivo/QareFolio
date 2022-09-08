@@ -11,7 +11,7 @@ export default class extends Controller {
 
   checklist(e) {
     console.log('click')
-    // this.submitTarget.classList.toggle("validated-checklist")
+    //this.submitTarget.classList.toggle("validated-checklist")
 
     // this.element.classList.toggle("validated-checklist")
     // console.log(this.checkboxTarget)

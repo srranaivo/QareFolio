@@ -64,7 +64,18 @@
       <%= simple_form_for validated_care, method: :put,
       html: {"data-controller":"checklist"},
       class: validated_care.done ? "" : "" do |form| %>
-        <%= form.submit validated_care.care.name, "data-checklist-target": "submit", "data-action": "click->checklist#checklist", class: validated_care.done ? "input-group-text flex-fill mb-3 p-3 w-100 validated-checklist" : "input-group-text flex-fill mb-3 p-3 w-100" %>
+        <%= button_tag(type: 'submit', class: validated_care.done ? "d-flex align-items-center mb-3 p-3 w-100 no-border validated-checklist" : "d-flex align-items-center mb-3 p-3 w-100 no-border") do %>
+          <% if validated_care.done %>
+          <i class="fa-regular fa-square-check me-4"></i>
+          <% else %>
+          <i class="fa-regular fa-square me-4"></i>
+          <% end %>
+          <span class="text-start"><%= validated_care.care.name %></span>
+        <% end %>
+        <%# <%= form.submit validated_care.care.name, %>
+        <%# "data-checklist-target": "submit", %>
+        <%# "data-action": "click->checklist#checklist", %>
+        <%# class: validated_care.done ? "input-group-text flex-fill mb-3 p-3 w-100 validated-checklist" : "input-group-text flex-fill mb-3 p-3 w-100" %>
       <% end %>
     <% end %>
   </div>
@@ -101,6 +112,7 @@
     <% end %>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-outline-primary w-100 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <i class="fa-solid fa-plus me-2"></i>
       Ajouter une nouvelle remarque
     </button>
   </div>

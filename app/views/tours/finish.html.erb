@@ -1,37 +1,27 @@
-
-<div class="mb-3 p-2">
-  <div class="col mt-2">
-    <div class="d-flex flex-column align-items-center">
-      <h1 class="fw-bold fs-1">Récapitulatif de ma tournée:</h1>
-      <p class="fs-6 text-black-50"><%= @tour.date.strftime("%d/%m/%Y") %></p>
-      <div>
-    <span>Bravo vos <%=@nb_consultation %> patients du jours ont bien été pris en charge !</span>
-    <span class="fs-2 mb-2">👏</span>
-    # vous avez parcouru x kilomètres
-    # vous avez effectué X soins
+<div class="container  mt-4">
+  <div class="mb-3 p-2">
+    <div class="col mt-2">
+      <div class="d-flex flex-column">
+        <h1 class="fw-bold fs-1">Récapitulatif</h1>
+        <p class="fs-6 text-black-50"><%= @tour.date.strftime("%d/%m/%Y") %></p>
+        <div class="d-flex flex-column align-items-center">
+          <p>Bravo vos <%=@nb_consultation %> patients du jours ont bien été pris en charge !</p>
+          <p class="fs-2 mb-2">👏</p>
+        </div>
       </div>
     </div>
   </div>
+
+  <div class="d-flex flex-column align-items-center">
+    <% unless @tour.next.nil? %>
+      <%= link_to tour_path(@tour.next), class: "btn btn-outline-primary mt-3 w-100" do %>
+        <span> Voir la tournée suivante </span>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="d-flex flex-column align-items-center mt-auto mb-0">
+    <a data-turbo-method="delete" class="btn btn-primary mt-3 w-100" href="/users/sign_out">Se déconnecter</a>
 </div>
 
-
-
-
-  <div class="d-flex flex-column align-items-center">
-      <% unless @tour.next.nil? %>
-        <%= link_to tour_path(@tour.next), class: "btn btn-outline-primary mt-3" do %>
-        <span> Voir la tournée suivante </span>
-        <% end %>
-      <% end %>
-  </div>
-
-
-
-
-
-
-
-  <div class="d-flex flex-column align-items-center">
-    <a data-turbo-method="delete" class="btn btn-primary mt-3" href="/users/sign_out">Se déconnecter</a>
-  </div>
 </div>
