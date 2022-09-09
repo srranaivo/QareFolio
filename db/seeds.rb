@@ -449,15 +449,15 @@ description: "Diabète"
 
 Anamnesis.create!(
 patient: patient_1,
-date: "2001-03-10",
-description: "Calculs rénaux"
+date: "1993-08-04",
+description: "Hypertriglycéridémie"
 )
 
 Anamnesis.create!(
-  patient: patient_1,
-  date: "1993-08-04",
-  description: "Hypertriglycéridémie"
-  )
+patient: patient_1,
+date: "2001-03-10",
+description: "Calculs rénaux"
+)
 
 Anamnesis.create!(
 patient: patient_1,
@@ -473,20 +473,20 @@ description: "Troubles bipolaires"
 
 Anamnesis.create!(
 patient: patient_2,
-date: "2018-03-10",
-description: "Hypotension"
-)
-
-Anamnesis.create!(
-patient: patient_2,
 date: "2017-10-15",
 description: "Bradycardie"
 )
 
 Anamnesis.create!(
+patient: patient_2,
+date: "2018-03-10",
+description: "Hypotension"
+)
+
+Anamnesis.create!(
 patient: patient_3,
-date: "2020-03-10",
-description: "Troubles dépressifs"
+date: "2015-04-18",
+description: "PTG gauche "
 )
 
 Anamnesis.create!(
@@ -497,9 +497,9 @@ description: "DMLA"
 
 Anamnesis.create!(
 patient: patient_3,
-date: "2015-04-18",
-description: "PTG gauche "
-  )
+date: "2020-03-10",
+description: "Troubles dépressifs"
+)
 
 Anamnesis.create!(
 patient: patient_4,
@@ -509,20 +509,20 @@ description: "Retard mental sévère"
 
 Anamnesis.create!(
 patient: patient_4,
-date: "2022-03-10",
-description: "COVID avec persistance de troubles respiratoires"
-)
-
-Anamnesis.create!(
-patient: patient_4,
 date: "1998-03-10",
 description: "Crise d'épilepsie"
 )
 
 Anamnesis.create!(
+patient: patient_4,
+date: "2022-03-10",
+description: "COVID avec persistance de troubles respiratoires"
+)
+
+Anamnesis.create!(
 patient: patient_5,
-date: "2017-03-10",
-description: "Alcoolisme chronique"
+date: "2000-09-24",
+description: "Cervicalgie"
 )
 
 Anamnesis.create!(
@@ -533,14 +533,8 @@ description: "Trouble de la personnalité"
 
 Anamnesis.create!(
 patient: patient_5,
-date: "2000-09-24",
-description: "Cervicalgie"
-)
-
-Anamnesis.create!(
-patient: patient_6,
-date: "2011-03-10",
-description: "Schizophrénie"
+date: "2017-03-10",
+description: "Alcoolisme chronique"
 )
 
 Anamnesis.create!(
@@ -553,6 +547,12 @@ Anamnesis.create!(
 patient: patient_6,
 date: "2003-11-30",
 description: "Dyslipidémie"
+)
+
+Anamnesis.create!(
+patient: patient_6,
+date: "2011-03-10",
+description: "Schizophrénie"
 )
 
 Anamnesis.create!(
@@ -647,7 +647,7 @@ description: "Xérostomie"
 
 Anamnesis.create!(
 patient: patient_12,
-date: "20-03-10",
+date: "2008-03-10",
 description: "Cholécystectomie"
 )
 
@@ -682,14 +682,14 @@ description: "Pneumonie sévère"
 
 Anamnesis.create!(
 patient: patient_14,
-date: "2021-03-10",
-description: "AVC"
+date: "2012-03-10",
+description: "Cataracte"
 )
 
 Anamnesis.create!(
 patient: patient_14,
-date: "2012-03-10",
-description: "Cataracte"
+date: "2021-03-10",
+description: "AVC"
 )
 
 Anamnesis.create!(
@@ -709,7 +709,6 @@ patient: patient_15,
 date: "2015-03-10",
 description: "Hypertension Artérielle"
 )
-
 
 Anamnesis.create!(
 patient: patient_15,
