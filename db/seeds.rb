@@ -27,7 +27,7 @@ nurse = User.new(
   first_name: 'Sophie',
   last_name: 'Ramahenina',
   email: "sophie@gmail.com",
-  password: "123456",
+  password: "monthey",
   profile_pic: "https://avatars.githubusercontent.com/u/102239823?v=4",
   address: 'Chem. de Burignon 2, 1071 Saint-Saphorin',
   arrival_address: 'Chem. de Burignon 2, 1071 Saint-Saphorin')
