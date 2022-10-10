@@ -1,7 +1,7 @@
 Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
 
 # QareFolio
-![Project Image](/assets/images/photo_accueil.png)
+![Project Image](assets/images/photo_accueil.png)
 
 ---
 
@@ -9,7 +9,7 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 
 -[Description](#description)
 -[How To Use](#how-to-use)
--[References](#references)
+-[Scope Of Functionalities](#scope-of-functionalities)
 -[License](#license)
 -[Author Info](#author-info)
 
@@ -27,29 +27,22 @@ QareFolio web application build with Ruby On Rails for nurses working in patient
 
 ---
 
-## How to Use
-
-#### Installation
+## Scope Of Functionalities
 
 
 
-#### API Reference
+#### Project Status
+The project is still on going. It must be improve with new features and some bugs must be fixed.
 
-
-[Back To The Top](#QareFolio)
+#### Contributing
+This project was carried out with my colleague Aurélien.
 
 ---
 
-## References
-
-
-[Back To The Top](#QareFolio)
-
 ## License
+
 [Back To The Top](#QareFolio)
 
 ## Author Info
-
-
 
 [Back To The Top](#QareFolio)
