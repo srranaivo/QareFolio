@@ -1,16 +1,14 @@
 Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
 
 # QareFolio
-![Project Image](assets/images/photo_accueil.png)
+![Project Image](app/assets/images/photo_accueil.png)
 
 ---
 
 ### Table of Contents
 
 -[Description](#description)
--[How To Use](#how-to-use)
 -[Scope Of Functionalities](#scope-of-functionalities)
--[License](#license)
 -[Author Info](#author-info)
 
 ---
@@ -20,16 +18,18 @@ QareFolio web application build with Ruby On Rails for nurses working in patient
 
 #### Technologies
 
--Ruby version 3.1.2
--Ruby On Rails version 7
--JavaScript
--Google Maps API
+⋅⋅* Ruby version 3.1.2
+⋅⋅* Ruby On Rails version 7
+⋅⋅* JavaScript
+⋅⋅* Google Maps API
 
 ---
 
 ## Scope Of Functionalities
 
-
+1. Global vision of patients
+2. Global vision of cares to be provided
+3. Easier consultation management
 
 #### Project Status
 The project is still on going. It must be improve with new features and some bugs must be fixed.
@@ -39,10 +39,7 @@ This project was carried out with my colleague Aurélien.
 
 ---
 
-## License
-
-[Back To The Top](#QareFolio)
-
 ## Author Info
+I am a nurse and passionate about new technologies. I decided to train in computer coding. I want to help health professionals with new technologies and it's in this spirit that I created QareFolio with my friend Aurélien, a great UI designer.
 
 [Back To The Top](#QareFolio)
