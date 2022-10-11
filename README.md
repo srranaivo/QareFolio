@@ -7,21 +7,25 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 
 ### Table of Contents
 
--[Description](#description)
--[Scope Of Functionalities](#scope-of-functionalities)
--[Author Info](#author-info)
+- [Description](#description)
+- [Technologies](#technologies)
+- [Scope Of Functionalities](#scope-of-functionalities)
+- [Project Status](#project-status)
+- [Author Info](#author-info)
 
 ---
 
 ## Description
 QareFolio web application build with Ruby On Rails for nurses working in patients'homes. QareFolio improves the daily life of caregivers and patient care.
 
-#### Technologies
+---
 
-⋅⋅* Ruby version 3.1.2
-⋅⋅* Ruby On Rails version 7
-⋅⋅* JavaScript
-⋅⋅* Google Maps API
+## Technologies
+
+- Ruby version 3.1.2
+- Ruby On Rails version 7
+- JavaScript
+- Google Maps API
 
 ---
 
@@ -31,7 +35,9 @@ QareFolio web application build with Ruby On Rails for nurses working in patient
 2. Global vision of cares to be provided
 3. Easier consultation management
 
-#### Project Status
+---
+
+## Project Status
 The project is still on going. It must be improve with new features and some bugs must be fixed.
 
 #### Contributing
